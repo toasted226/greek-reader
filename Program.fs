@@ -11,7 +11,17 @@ module Program =
 
   // scratch
   let private analysedNouns =
-    Jsonl.parseWords "greek-nouns.jsonl"
+    let candidates =
+      [ "Resources/greek-nouns.jsonl"
+        "greek-nouns.jsonl"
+        System.IO.Path.Combine(System.AppContext.BaseDirectory, "greek-nouns.jsonl")
+        System.IO.Path.Combine(System.AppContext.BaseDirectory, "..", "..", "..", "Resources", "greek-nouns.jsonl") ]
+    let path =
+      candidates
+      |> List.tryFind System.IO.File.Exists
+      |> Option.defaultWith (fun () ->
+        failwith ("Cannot find greek-nouns.jsonl. Checked: " + String.concat ", " candidates))
+    Jsonl.parseWords path
     |> analyseNouns
 
   [<EntryPoint>]
