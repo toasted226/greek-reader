@@ -66,3 +66,9 @@ module NounParser =
         GlossesPerSense = w.Senses |> Option.defaultValue [] |> getGlossesPerSense
         Gender = w.Senses |> Option.bind getGender
         Forms = w.Forms |> Option.defaultValue [] |> getNounForms }
+
+  let analyseWords (words: Word seq) : AnalysedWord seq =
+    words |> Seq.map analyse
+
+  let analyseWordsList (words: Word list) : AnalysedWord list =
+    words |> Seq.map analyse |> Seq.toList
