@@ -1,20 +1,19 @@
 namespace GreekReader.Parsing
 
-open System.Linq
-
 open GreekReader.Model
 open GreekReader.Wiktionary
 
 module NounParser =
 
+  let private hasTags (case: string, number: string) (tags: string list) =
+    tags |> List.contains case && tags |> List.contains number
+
   let getNounForm (forms: Form list, case: string, number: string) : string option =
-    try
-      let f =
-        forms
-        |> List.find (fun f -> f.Tags.Contains(case) && f.Tags.Contains(number))
-      Some f.Form
-    with
-    | _ -> None
+    forms
+    |> List.tryPick (fun f ->
+      f.Tags
+      |> Option.filter (hasTags(case, number))
+      |> Option.map (fun _ -> f.Form))
 
   let getNumberFormsForCase (forms: Form list, case: string) : NumberForms =
     { Singular = getNounForm(forms, case, "singular")
@@ -46,4 +45,4 @@ module NounParser =
       { Lemma = w.Word
         Glosses = w.Senses |> Option.defaultValue [] |> getGlosses
         Gender = w.Senses |> Option.bind getGender
-        Forms = getNounForms w.Forms }
+        Forms = w.Forms |> Option.defaultValue [] |> getNounForms }

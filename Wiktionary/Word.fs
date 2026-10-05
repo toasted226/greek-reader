@@ -6,7 +6,9 @@ namespace GreekReader.Wiktionary
 type Form =
   { Form: string
     Source: string option
-    Tags: string list
+    /// Absent in 37 of the dataset's forms. Optional so those bind to None
+    /// instead of null, which used to throw inside the form lookup.
+    Tags: string list option
     Roman: string option }
 
 type Sense =
@@ -15,6 +17,7 @@ type Sense =
 
 type Word =
   { Pos: string
-    Forms: Form list
+    /// Absent entirely in 8 of the dataset's entries (e.g. "ΔΒΔ", "γεν.").
+    Forms: Form list option
     Word: string
     Senses: Sense list option }
