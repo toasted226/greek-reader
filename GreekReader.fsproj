@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Order is load-bearing: F# compiles top-to-bottom in a single pass.
+      When adding a part of speech, insert its Model/X.fs above AnalysedWord.fs
+      (the closed DU can only reference types already declared) and its
+      Parsing/X.fs below Jsonl.fs.
+    -->
+    <Compile Include="Model/Grammatical.fs" />      <!-- no deps                            -->
+    <Compile Include="Model/Noun.fs" />             <!-- -> Grammatical                     -->
+    <Compile Include="Model/AnalysedWord.fs" />     <!-- -> every Model/*                   -->
+    <Compile Include="Wiktionary/Word.fs" />        <!-- no deps                            -->
+    <Compile Include="Wiktionary/Jsonl.fs" />       <!-- -> Word                            -->
+    <Compile Include="Parsing/Noun.fs" />           <!-- -> Model/* + Wiktionary/*          -->
+    <Compile Include="Program.fs" />                <!-- -> everything                      -->
+  </ItemGroup>
+
+</Project>
