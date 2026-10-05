@@ -8,22 +8,42 @@ module NounParser =
   let private hasTags (case: string, number: string) (tags: string list) =
     tags |> List.contains case && tags |> List.contains number
 
-  let getNounForm (forms: Form list, case: string, number: string) : string option =
+  /// Build a lookup map from (case, number) to the form string. Uses first
+  /// occurrence if duplicates exist (preserves existing semantics for now).
+  let private buildFormMap (forms: Form list) : Map<string * string, string> =
     forms
-    |> List.tryPick (fun f ->
-      f.Tags
-      |> Option.filter (hasTags(case, number))
-      |> Option.map (fun _ -> f.Form))
-
-  let getNumberFormsForCase (forms: Form list, case: string) : NumberForms =
-    { Singular = getNounForm(forms, case, "singular")
-      Plural = getNounForm(forms, case, "plural") }
+    |> List.choose (fun f ->
+      match f.Tags with
+      | None -> None
+      | Some tags ->
+        // try to find the first case/number pair on these tags
+        // we only care about the 4 cases + singular/plural
+        let rec pickCase acc tags =
+          match tags with
+          | [] -> None
+          | "nominative" :: _ when Option.isNone acc -> pickCase (Some("nominative")) tags
+          | "accusative" :: _ when Option.isNone acc -> pickCase (Some("accusative")) tags
+          | "genitive" :: _ when Option.isNone acc -> pickCase (Some("genitive")) tags
+          | "vocative" :: _ when Option.isNone acc -> pickCase (Some("vocative")) tags
+          | _ :: rest -> pickCase acc rest
+        let rec pickNumber acc tags =
+          match tags with
+          | [] -> None
+          | "singular" :: _ when Option.isNone acc -> pickNumber (Some("singular")) tags
+          | "plural" :: _ when Option.isNone acc -> pickNumber (Some("plural")) tags
+          | _ :: rest -> pickNumber acc rest
+        match pickCase None tags, pickNumber None tags with
+        | Some c, Some n -> Some((c, n), f.Form)
+        | _ -> None)
+    |> Map.ofList
 
   let getNounForms (forms: Form list) : NounForms =
-    { Nominative = getNumberFormsForCase(forms, "nominative")
-      Accusative = getNumberFormsForCase(forms, "accusative")
-      Genitive = getNumberFormsForCase(forms, "genitive")
-      Vocative = getNumberFormsForCase(forms, "vocative") }
+    let formMap = buildFormMap forms
+    let get case num = formMap |> Map.tryFind (case, num)
+    { Nominative = { Singular = get "nominative" "singular"; Plural = get "nominative" "plural" }
+      Accusative = { Singular = get "accusative" "singular"; Plural = get "accusative" "plural" }
+      Genitive = { Singular = get "genitive" "singular"; Plural = get "genitive" "plural" }
+      Vocative = { Singular = get "vocative" "singular"; Plural = get "vocative" "plural" } }
 
   let private tryGender = function
     | "masculine" -> Some Masculine
