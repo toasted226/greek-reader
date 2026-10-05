@@ -6,8 +6,7 @@ namespace GreekReader.Wiktionary
 type Form =
   { Form: string
     Source: string option
-    /// Absent in 37 of the dataset's forms. Optional so those bind to None
-    /// instead of null, which used to throw inside the form lookup.
+    /// Absent in 37 of the dataset's forms.
     Tags: string list option
     Roman: string option }
 
