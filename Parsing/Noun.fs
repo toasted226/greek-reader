@@ -8,8 +8,8 @@ module NounParser =
   let private hasTags (case: string, number: string) (tags: string list) =
     tags |> List.contains case && tags |> List.contains number
 
-  /// Build a lookup map from (case, number) to the form string. Uses first
-  /// occurrence if duplicates exist (preserves existing semantics for now).
+  /// Build a lookup map from (case, number) to the form string.
+  /// Uses first occurrence if duplicates exist.
   let private buildFormMap (forms: Form list) : Map<string * string, string> =
     forms
     |> List.choose (fun f ->
@@ -17,7 +17,7 @@ module NounParser =
       | None -> None
       | Some tags ->
         // try to find the first case/number pair on these tags
-        // we only care about the 4 cases + singular/plural
+        // 4 cases + singular/plural
         let rec pickCase acc tags =
           match tags with
           | [] -> None
@@ -56,14 +56,16 @@ module NounParser =
     |> List.collect (fun s -> s.Tags |> Option.defaultValue [])
     |> List.tryPick tryGender
 
-  let getGlossesPerSense (senses: Sense list) : string list list =
+  let getGlosses (senses: Sense list) : string list =
     senses
     |> List.map (fun s -> s.Glosses |> Option.defaultValue [])
+    |> List.concat
+    |> List.distinct
 
   let analyse (w: Word) : AnalysedWord =
     Noun
       { Lemma = w.Word
-        GlossesPerSense = w.Senses |> Option.defaultValue [] |> getGlossesPerSense
+        Glosses = w.Senses |> Option.defaultValue [] |> getGlosses
         Gender = w.Senses |> Option.bind getGender
         Forms = w.Forms |> Option.defaultValue [] |> getNounForms }
 

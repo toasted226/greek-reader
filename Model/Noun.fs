@@ -12,6 +12,6 @@ type NounForms =
 
 type NounInfo =
   { Lemma: string
-    GlossesPerSense: string list list
+    Glosses: string list
     Gender: Gender option
     Forms: NounForms }
