@@ -36,13 +36,13 @@ module NounParser =
     |> List.collect (fun s -> s.Tags |> Option.defaultValue [])
     |> List.tryPick tryGender
 
-  let getGlosses (senses: Sense list) : string list =
+  let getGlossesPerSense (senses: Sense list) : string list list =
     senses
-    |> List.collect (fun s -> s.Glosses |> Option.defaultValue [])
+    |> List.map (fun s -> s.Glosses |> Option.defaultValue [])
 
   let analyse (w: Word) : AnalysedWord =
     Noun
       { Lemma = w.Word
-        Glosses = w.Senses |> Option.defaultValue [] |> getGlosses
+        GlossesPerSense = w.Senses |> Option.defaultValue [] |> getGlossesPerSense
         Gender = w.Senses |> Option.bind getGender
         Forms = w.Forms |> Option.defaultValue [] |> getNounForms }
