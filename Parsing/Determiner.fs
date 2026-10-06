@@ -3,7 +3,7 @@ namespace GreekReader.Parsing
 open GreekReader.Model
 open GreekReader.Wiktionary
 
-module NounParser =
+module DeterminerParser =
 
   let private hasTags (case: string, number: string) (tags: string list) =
     tags |> List.contains case && tags |> List.contains number
@@ -35,7 +35,7 @@ module NounParser =
         | _ -> None)
     |> Map.ofList
 
-  let getNounForms (forms: Form list) : CaseForms =
+  let getCaseForms (forms: Form list) : CaseForms =
     let formMap = buildFormMap forms
     let get case num = formMap |> Map.tryFind (case, num)
     { Nominative = { Singular = get "nominative" "singular"; Plural = get "nominative" "plural" }
@@ -61,14 +61,15 @@ module NounParser =
     |> List.distinct
 
   let analyse (w: Word) : AnalysedWord =
-    Noun
+    Determiner
       { Lemma = w.Word
         Glosses = w.Senses |> Option.defaultValue [] |> getGlosses
-        Gender = w.Senses |> Option.bind getGender
-        Forms = w.Forms |> Option.defaultValue [] |> getNounForms }
+        Forms = w.Forms |> Option.defaultValue [] |> getCaseForms }
 
   let analyseWords (words: Word seq) : AnalysedWord seq =
     words |> Seq.map analyse
 
   let analyseWordsList (words: Word list) : AnalysedWord list =
     words |> Seq.map analyse |> Seq.toList
+
+  let w = Jsonl.parseWord("determiner.json")

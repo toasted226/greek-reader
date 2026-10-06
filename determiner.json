@@ -1,0 +1,472 @@
+{
+  "pos": "det",
+  "head_templates": [
+    {
+      "name": "head",
+      "args": {
+        "1": "el",
+        "2": "determiner",
+        "head": "",
+        "sort": "",
+        "g": "m",
+        "3": "demonstrative determiner",
+        "4": "",
+        "5": "feminine",
+        "6": "αυτή",
+        "7": "",
+        "8": "",
+        "9": "neuter",
+        "10": "αυτό"
+      },
+      "expansion": "αυτός • (aftós) m (demonstrative determiner, feminine αυτή, neuter αυτό)"
+    },
+    {
+      "name": "el-det",
+      "args": {
+        "f": "αυτή",
+        "n": "αυτό",
+        "desc": "demonstrative determiner"
+      },
+      "expansion": "αυτός • (aftós) m (demonstrative determiner, feminine αυτή, neuter αυτό)"
+    }
+  ],
+  "forms": [
+    {
+      "form": "aftós",
+      "tags": [
+        "romanization"
+      ]
+    },
+    {
+      "form": "αυτή",
+      "tags": [
+        "feminine"
+      ]
+    },
+    {
+      "form": "αυτό",
+      "tags": [
+        "neuter"
+      ]
+    },
+    {
+      "form": "no-table-tags",
+      "source": "declension",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-decl-ός-ή-ό",
+      "source": "declension",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "αυτός",
+      "tags": [
+        "masculine",
+        "nominative",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftós"
+    },
+    {
+      "form": "αυτή",
+      "tags": [
+        "feminine",
+        "nominative",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftí"
+    },
+    {
+      "form": "αυτό",
+      "tags": [
+        "neuter",
+        "nominative",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftó"
+    },
+    {
+      "form": "αυτοί",
+      "tags": [
+        "masculine",
+        "nominative",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftoí"
+    },
+    {
+      "form": "αυτές",
+      "tags": [
+        "feminine",
+        "nominative",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftés"
+    },
+    {
+      "form": "αυτά",
+      "tags": [
+        "neuter",
+        "nominative",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftá"
+    },
+    {
+      "form": "αυτού",
+      "tags": [
+        "genitive",
+        "masculine",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftoú"
+    },
+    {
+      "form": "αυτής",
+      "tags": [
+        "feminine",
+        "genitive",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftís"
+    },
+    {
+      "form": "αυτού",
+      "tags": [
+        "genitive",
+        "neuter",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftoú"
+    },
+    {
+      "form": "αυτών",
+      "tags": [
+        "genitive",
+        "masculine",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftón"
+    },
+    {
+      "form": "αυτών",
+      "tags": [
+        "feminine",
+        "genitive",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftón"
+    },
+    {
+      "form": "αυτών",
+      "tags": [
+        "genitive",
+        "neuter",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftón"
+    },
+    {
+      "form": "αυτό",
+      "tags": [
+        "accusative",
+        "masculine",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftó"
+    },
+    {
+      "form": "αυτή",
+      "tags": [
+        "accusative",
+        "feminine",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftí"
+    },
+    {
+      "form": "αυτό",
+      "tags": [
+        "accusative",
+        "neuter",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "aftó"
+    },
+    {
+      "form": "αυτούς",
+      "tags": [
+        "accusative",
+        "masculine",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftoús"
+    },
+    {
+      "form": "αυτές",
+      "tags": [
+        "accusative",
+        "feminine",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftés"
+    },
+    {
+      "form": "αυτά",
+      "tags": [
+        "accusative",
+        "neuter",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "aftá"
+    },
+    {
+      "form": "αυτέ",
+      "tags": [
+        "masculine",
+        "singular",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "afté"
+    },
+    {
+      "form": "αυτή",
+      "tags": [
+        "feminine",
+        "singular",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "aftí"
+    },
+    {
+      "form": "αυτό",
+      "tags": [
+        "neuter",
+        "singular",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "aftó"
+    },
+    {
+      "form": "αυτοί",
+      "tags": [
+        "masculine",
+        "plural",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "aftoí"
+    },
+    {
+      "form": "αυτές",
+      "tags": [
+        "feminine",
+        "plural",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "aftés"
+    },
+    {
+      "form": "αυτά",
+      "tags": [
+        "neuter",
+        "plural",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "aftá"
+    }
+  ],
+  "inflection_templates": [
+    {
+      "name": "el-decl-ός-ή-ό",
+      "args": {
+        "1": "αυτ",
+        "note": "When a vowel follows the masculine and feminine accusative singular forms, a ν is often added: <i class=\"Grek mention\" lang=\"el\">αυτόν</i> (aftón), <i class=\"Grek mention\" lang=\"el\">αυτήν</i> (aftín)."
+      }
+    },
+    {
+      "name": "el-decl-adj",
+      "args": {
+        "nopio": "1",
+        "nocat": "1",
+        "dec": "ός-ή-ό",
+        "stem": "αυτ",
+        "posnote": "When a vowel follows the masculine and feminine accusative singular forms, a ν is often added: <i class=\"Grek mention\" lang=\"el\">αυτόν</i> (aftón), <i class=\"Grek mention\" lang=\"el\">αυτήν</i> (aftín)."
+      }
+    },
+    {
+      "name": "el-decl-adj-a",
+      "args": {
+        "form": "",
+        "dec": "ός-ή-ό",
+        "stem": "αυτ",
+        "stem2": "",
+        "posnote": "When a vowel follows the masculine and feminine accusative singular forms, a ν is often added: <i class=\"Grek mention\" lang=\"el\">αυτόν</i> (aftón), <i class=\"Grek mention\" lang=\"el\">αυτήν</i> (aftín).",
+        "compstem": "",
+        "compstem2": "",
+        "abstem": "",
+        "abstem2": "",
+        "docnote": "",
+        "lemma": "",
+        "nopio": "1",
+        "part": "",
+        "nocat": "1"
+      }
+    },
+    {
+      "name": "el-decl-adj-positive",
+      "args": {
+        "header": "Declension of αυτός",
+        "dec": "ός-ή-ό",
+        "stem": "αυτ",
+        "stem2": "",
+        "note": "When a vowel follows the masculine and feminine accusative singular forms, a ν is often added: <i class=\"Grek mention\" lang=\"el\">αυτόν</i> (aftón), <i class=\"Grek mention\" lang=\"el\">αυτήν</i> (aftín).",
+        "pionote": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-ός-ή-ό",
+      "args": {
+        "form": "",
+        "stem": "αυτ",
+        "stem2": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-table",
+      "args": {
+        "1": "αυτός (aftós)",
+        "2": "αυτή (aftí)",
+        "3": "αυτό (aftó)",
+        "4": "αυτοί (aftoí)",
+        "5": "αυτές (aftés)",
+        "6": "αυτά (aftá)",
+        "7": "αυτού (aftoú)",
+        "8": "αυτής (aftís)",
+        "9": "αυτού (aftoú)",
+        "10": "αυτών (aftón)",
+        "11": "αυτών (aftón)",
+        "12": "αυτών (aftón)",
+        "13": "αυτό (aftó)",
+        "14": "αυτή (aftí)",
+        "15": "αυτό (aftó)",
+        "16": "αυτούς (aftoús)",
+        "17": "αυτές (aftés)",
+        "18": "αυτά (aftá)",
+        "19": "αυτέ (afté)",
+        "20": "αυτή (aftí)",
+        "21": "αυτό (aftó)",
+        "22": "αυτοί (aftoí)",
+        "23": "αυτές (aftés)",
+        "24": "αυτά (aftá)"
+      }
+    }
+  ],
+  "etymology_text": "From Ancient Greek αὐτός (autós).",
+  "etymology_links": [
+    [
+      "αὐτός",
+      "αὐτός#Ancient_Greek"
+    ]
+  ],
+  "etymology_templates": [
+    {
+      "name": "ety",
+      "args": {
+        "1": "el",
+        "2": ":inh",
+        "3": "grc:αὐτός"
+      },
+      "expansion": "[Appendix:Glossary#inherited|Inherited]] from\", \"keyword\" : \"inherited\" }, { \"terms\" : [ { \"children\" : [ { \"keyword_abbrev\" : \"der.\", \"keyword_label\" : \"Derived from\", \"terms\" : [ { \"id\" : \"away from\", \"children\" : [ ], \"status\" : \"ok\", \"lang_name\" : \"Proto-Indo-European\", \"term\" : \"*h₂ew\", \"lang\" : \"ine-pro\" } ], \"keyword\" : \"derived\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"αὖ\", \"status\" : \"ok\", \"lang\" : \"grc\" }, { \"children\" : [ ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"τόν\", \"status\" : \"missing\", \"lang\" : \"grc\" } ], \"keyword_label\" : \"From\", \"is_group\" : true, \"keyword\" : \"affix\" } ], \"lang_name\" : \"Ancient Greek\", \"term\" : \"αὐτός\", \"status\" : \"ok\", \"lang\" : \"grc\" } ], \"keyword_label\" : \"Inherited from\", \"keyword\" : \"inherited\" } ], \"lang_name\" : \"Greek\", \"term\" : \"αυτός\", \"status\" : \"ok\", \"lang\" : \"el\" }\" data-lang=\"el\" data-title=\"αυτός\">"
+    },
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "grc",
+        "3": "αὐτός"
+      },
+      "expansion": "Ancient Greek αὐτός (autós)"
+    }
+  ],
+  "sounds": [
+    {
+      "ipa": "/aˈftos/"
+    }
+  ],
+  "hyphenations": [
+    {
+      "parts": [
+        "αυ",
+        "τός"
+      ]
+    }
+  ],
+  "word": "αυτός",
+  "lang": "Greek",
+  "lang_code": "el",
+  "senses": [
+    {
+      "links": [
+        [
+          "this",
+          "this"
+        ],
+        [
+          "nominative",
+          "nominative case"
+        ]
+      ],
+      "synonyms": [
+        {
+          "word": "τούτος",
+          "english": "more formal",
+          "translation": "more formal"
+        },
+        {
+          "word": "αυτούνος",
+          "tags": [
+            "dialectal"
+          ]
+        }
+      ],
+      "glosses": [
+        "this (masculine singular, nominative)"
+      ],
+      "tags": [
+        "demonstrative",
+        "determiner",
+        "masculine"
+      ],
+      "id": "en-αυτός-el-det-UWCIZjT0"
+    }
+  ]
+}
