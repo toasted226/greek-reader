@@ -29,7 +29,7 @@ type TenseForms =
     Imperfect: PersonForms
     Past: PersonForms
     Future: PersonForms
-    Progressive: PersonForms }
+    Dependent: PersonForms }
 
 type AspectForms =
   { Imperfective: TenseForms

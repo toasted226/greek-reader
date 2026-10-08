@@ -4,12 +4,13 @@
 #load "Parsing/Utils.fs"
 #load "Parsing/Noun.fs"
 #load "Parsing/Determiner.fs"
+#load "Parsing/Verbs.fs"
 #load "Program.fs"
 
 open GreekReader.Wiktionary
 open Jsonl
 open GreekReader.Parsing
-open DeterminerParser
 
-let words = parseLines<Word>("greek-determiners.jsonl")
-let analysed = analyseWordsList(words |> Seq.toList)
+let word = parseLine<Word>("verb.json")
+let forms = word.Forms |> Option.defaultValue []
+let moods = VerbParser.getMoods forms
