@@ -1,0 +1,1309 @@
+{
+  "pos": "verb",
+  "head_templates": [
+    {
+      "name": "head",
+      "args": {
+        "1": "el",
+        "2": "verbs",
+        "head": "",
+        "ts": "",
+        "sort": ""
+      },
+      "expansion": "διαλέγω • (dialégo)"
+    },
+    {
+      "name": "el-verb",
+      "args": {
+        "past": "διάλεξα",
+        "passive": "διαλέγομαι",
+        "p-past": "διαλέχτηκα",
+        "ppp": "διαλεγμένος"
+      },
+      "expansion": "διαλέγω • (dialégo) (past διάλεξα, passive διαλέγομαι, p‑past διαλέχτηκα, ppp διαλεγμένος)"
+    }
+  ],
+  "forms": [
+    {
+      "form": "dialégo",
+      "tags": [
+        "romanization"
+      ]
+    },
+    {
+      "form": "διάλεξα",
+      "tags": [
+        "past"
+      ]
+    },
+    {
+      "form": "διαλέγομαι",
+      "tags": [
+        "passive"
+      ]
+    },
+    {
+      "form": "διαλέχτηκα",
+      "tags": [
+        "passive",
+        "past"
+      ]
+    },
+    {
+      "form": "διαλεγμένος",
+      "tags": [
+        "participle",
+        "passive",
+        "perfect"
+      ]
+    },
+    {
+      "form": "no-table-tags",
+      "source": "conjugation",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-conjug-1st",
+      "source": "conjugation",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "διαλέγω",
+      "tags": [
+        "active",
+        "first-person",
+        "imperfective",
+        "indicative",
+        "present",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξω",
+      "tags": [
+        "active",
+        "dependent",
+        "first-person",
+        "indicative",
+        "perfective",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγομαι",
+      "tags": [
+        "first-person",
+        "imperfective",
+        "indicative",
+        "passive",
+        "present",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτώ",
+      "tags": [
+        "dependent",
+        "first-person",
+        "indicative",
+        "passive",
+        "perfective",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγεις",
+      "tags": [
+        "active",
+        "imperfective",
+        "indicative",
+        "present",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξεις",
+      "tags": [
+        "active",
+        "dependent",
+        "indicative",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγεσαι",
+      "tags": [
+        "imperfective",
+        "indicative",
+        "passive",
+        "present",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτείς",
+      "tags": [
+        "dependent",
+        "indicative",
+        "passive",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγει",
+      "tags": [
+        "active",
+        "imperfective",
+        "indicative",
+        "present",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξει",
+      "tags": [
+        "active",
+        "dependent",
+        "indicative",
+        "perfective",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγεται",
+      "tags": [
+        "imperfective",
+        "indicative",
+        "passive",
+        "present",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτεί",
+      "tags": [
+        "dependent",
+        "indicative",
+        "passive",
+        "perfective",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγουμε",
+      "tags": [
+        "active",
+        "first-person",
+        "imperfective",
+        "indicative",
+        "plural",
+        "present"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγομε",
+      "tags": [
+        "active",
+        "first-person",
+        "imperfective",
+        "indicative",
+        "plural",
+        "present",
+        "rare"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξουμε",
+      "tags": [
+        "active",
+        "dependent",
+        "first-person",
+        "indicative",
+        "perfective",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξομε",
+      "tags": [
+        "active",
+        "dependent",
+        "first-person",
+        "indicative",
+        "perfective",
+        "plural",
+        "rare"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόμαστε",
+      "tags": [
+        "first-person",
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural",
+        "present"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτούμε",
+      "tags": [
+        "dependent",
+        "first-person",
+        "indicative",
+        "passive",
+        "perfective",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγετε",
+      "tags": [
+        "active",
+        "imperfective",
+        "indicative",
+        "plural",
+        "present",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξετε",
+      "tags": [
+        "active",
+        "dependent",
+        "indicative",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγεστε",
+      "tags": [
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural",
+        "present",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόσαστε",
+      "tags": [
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural",
+        "present",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτείτε",
+      "tags": [
+        "dependent",
+        "indicative",
+        "passive",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγουν",
+      "tags": [
+        "active",
+        "imperfective",
+        "indicative",
+        "plural",
+        "present",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγουνε",
+      "tags": [
+        "active",
+        "imperfective",
+        "indicative",
+        "plural",
+        "present",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξουν",
+      "tags": [
+        "active",
+        "dependent",
+        "indicative",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξουνε",
+      "tags": [
+        "active",
+        "dependent",
+        "indicative",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγονται",
+      "tags": [
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural",
+        "present",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτούν",
+      "tags": [
+        "dependent",
+        "indicative",
+        "passive",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτούνε",
+      "tags": [
+        "dependent",
+        "indicative",
+        "passive",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεγα",
+      "tags": [
+        "active",
+        "first-person",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεξα",
+      "tags": [
+        "active",
+        "first-person",
+        "indicative",
+        "past",
+        "perfective",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόμουν",
+      "tags": [
+        "first-person",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόμουνα",
+      "tags": [
+        "first-person",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέχτηκα",
+      "tags": [
+        "first-person",
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεγες",
+      "tags": [
+        "active",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεξες",
+      "tags": [
+        "active",
+        "indicative",
+        "past",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόσουν",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόσουνα",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέχτηκες",
+      "tags": [
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεγε",
+      "tags": [
+        "active",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεξε",
+      "tags": [
+        "active",
+        "indicative",
+        "past",
+        "perfective",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόταν",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγότανε",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέχτηκε",
+      "tags": [
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "singular",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγαμε",
+      "tags": [
+        "active",
+        "first-person",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξαμε",
+      "tags": [
+        "active",
+        "first-person",
+        "indicative",
+        "past",
+        "perfective",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόμασταν",
+      "tags": [
+        "first-person",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόμαστε",
+      "tags": [
+        "first-person",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "informal",
+        "passive",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτήκαμε",
+      "tags": [
+        "first-person",
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "plural"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγατε",
+      "tags": [
+        "active",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξατε",
+      "tags": [
+        "active",
+        "indicative",
+        "past",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόσασταν",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόσαστε",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "informal",
+        "passive",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτήκατε",
+      "tags": [
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεγαν",
+      "tags": [
+        "active",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγαν",
+      "tags": [
+        "active",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγανε",
+      "tags": [
+        "active",
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεξαν",
+      "tags": [
+        "active",
+        "indicative",
+        "past",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξαν",
+      "tags": [
+        "active",
+        "indicative",
+        "past",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξανε",
+      "tags": [
+        "active",
+        "indicative",
+        "past",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγονταν",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "passive",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγόντουσαν",
+      "tags": [
+        "imperfect",
+        "imperfective",
+        "indicative",
+        "informal",
+        "passive",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέχτηκαν",
+      "tags": [
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτήκαν",
+      "tags": [
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτήκανε",
+      "tags": [
+        "indicative",
+        "passive",
+        "past",
+        "perfective",
+        "plural",
+        "third-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "θα διαλέγω",
+      "tags": [
+        "active",
+        "first-person",
+        "future",
+        "imperfective",
+        "indicative",
+        "progressive",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "θα διαλέξω",
+      "tags": [
+        "active",
+        "first-person",
+        "future",
+        "indicative",
+        "perfective",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "θα διαλέγομαι",
+      "tags": [
+        "continuative",
+        "first-person",
+        "future",
+        "imperfective",
+        "indicative",
+        "passive",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "θα διαλεχτώ",
+      "tags": [
+        "first-person",
+        "future",
+        "indicative",
+        "passive",
+        "perfective",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεγε",
+      "tags": [
+        "active",
+        "imperative",
+        "imperfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεξε",
+      "tags": [
+        "active",
+        "imperative",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διάλεχ'",
+      "tags": [
+        "active",
+        "imperative",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "-",
+      "tags": [
+        "imperative",
+        "imperfective",
+        "passive",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξου",
+      "tags": [
+        "imperative",
+        "passive",
+        "perfective",
+        "second-person",
+        "singular"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγετε",
+      "tags": [
+        "active",
+        "imperative",
+        "imperfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξτε",
+      "tags": [
+        "active",
+        "imperative",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέχτε",
+      "tags": [
+        "active",
+        "imperative",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγεστε",
+      "tags": [
+        "imperative",
+        "imperfective",
+        "passive",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτείτε",
+      "tags": [
+        "imperative",
+        "passive",
+        "perfective",
+        "plural",
+        "second-person"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέγοντας",
+      "tags": [
+        "active",
+        "participle",
+        "present"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "-",
+      "tags": [
+        "participle",
+        "passive",
+        "present"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "έχοντας διαλέξει",
+      "tags": [
+        "active",
+        "participle",
+        "past"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεγμένος",
+      "tags": [
+        "participle",
+        "passive",
+        "past"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "‑η",
+      "tags": [
+        "participle",
+        "passive",
+        "past"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "‑ο",
+      "tags": [
+        "participle",
+        "passive",
+        "past"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλέξει",
+      "tags": [
+        "active",
+        "infinitive-aorist"
+      ],
+      "source": "conjugation"
+    },
+    {
+      "form": "διαλεχτεί",
+      "tags": [
+        "infinitive-aorist",
+        "passive"
+      ],
+      "source": "conjugation"
+    }
+  ],
+  "etymology_text": "Inherited from Ancient Greek διαλέγω (dialégō), from δια- (dia-) + λέγω (légo) (sense \"choose\" of ancient λέγω (légō)).\nFor the passive voice sense \"discuss\", a learned internal borrowing from Ancient Greek διαλέγομαι (dialégomai) (sense \"say, tell\" of ancient λέγω (légō))",
+  "etymology_links": [
+    [
+      "διαλέγω",
+      "διαλέγω#Ancient_Greek"
+    ],
+    [
+      "δια-",
+      "δια-#Greek"
+    ],
+    [
+      "λέγω",
+      "λέγω#Greek"
+    ],
+    [
+      "λέγω",
+      "λέγω#Ancient_Greek"
+    ],
+    [
+      "διαλέγομαι",
+      "διαλέγομαι#Ancient_Greek"
+    ],
+    [
+      "λέγω",
+      "λέγω#Ancient_Greek"
+    ]
+  ],
+  "etymology_templates": [
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "grc",
+        "3": "διαλέγω"
+      },
+      "expansion": "Ancient Greek διαλέγω (dialégō)"
+    },
+    {
+      "name": "af",
+      "args": {
+        "1": "el",
+        "2": "δια-",
+        "3": "λέγω"
+      },
+      "expansion": "δια- (dia-) + λέγω (légo)"
+    },
+    {
+      "name": "der",
+      "args": {
+        "1": "el",
+        "2": "grc",
+        "3": "διαλέγομαι"
+      },
+      "expansion": "Ancient Greek διαλέγομαι (dialégomai)"
+    }
+  ],
+  "sounds": [
+    {
+      "ipa": "/ðʝaˈle.ɣo/"
+    },
+    {
+      "ipa": "/ði̯aˈle.ɣo/"
+    }
+  ],
+  "hyphenations": [
+    {
+      "parts": [
+        "δι",
+        "α",
+        "λέ",
+        "γω"
+      ]
+    }
+  ],
+  "word": "διαλέγω",
+  "lang": "Greek",
+  "lang_code": "el",
+  "senses": [
+    {
+      "links": [
+        [
+          "choose",
+          "choose"
+        ],
+        [
+          "select",
+          "select"
+        ],
+        [
+          "pick out",
+          "pick out"
+        ]
+      ],
+      "glosses": [
+        "to choose, select, pick out"
+      ],
+      "id": "en-διαλέγω-el-verb-FX8gFwkc",
+      "categories": [
+        {
+          "name": "Greek entries with incorrect language header",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Greek terms prefixed with δια-",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Greek terms with non-redundant non-automated sortkeys",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Greek verbs conjugating like 'τυλίγω'",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Pages with 2 entries",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Pages with entries",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        }
+      ],
+      "synonyms": [
+        {
+          "roman": "epilégo",
+          "word": "επιλέγω"
+        },
+        {
+          "roman": "xedialégo",
+          "word": "ξεδιαλέγω"
+        },
+        {
+          "roman": "eklégo",
+          "word": "εκλέγω"
+        }
+      ],
+      "related": [
+        {
+          "roman": "axediálechtos",
+          "english": "unsorted",
+          "translation": "unsorted",
+          "word": "αξεδιάλεχτος"
+        },
+        {
+          "roman": "dialégomai",
+          "english": "to discuss",
+          "translation": "to discuss",
+          "word": "διαλέγομαι"
+        },
+        {
+          "tags": [
+            "feminine"
+          ],
+          "roman": "diálektos",
+          "english": "dialect, jargon",
+          "translation": "dialect, jargon",
+          "word": "διάλεκτος"
+        },
+        {
+          "tags": [
+            "feminine"
+          ],
+          "roman": "diálexi",
+          "english": "lecture",
+          "translation": "lecture",
+          "word": "διάλεξη"
+        },
+        {
+          "roman": "dialechtós",
+          "english": "selected, very good",
+          "translation": "selected, very good",
+          "word": "διαλεχτός"
+        },
+        {
+          "tags": [
+            "feminine"
+          ],
+          "roman": "dialogí",
+          "english": "sorting, sorting out, counting",
+          "translation": "sorting, sorting out, counting",
+          "word": "διαλογή"
+        },
+        {
+          "tags": [
+            "masculine"
+          ],
+          "roman": "diálogos",
+          "english": "dialogue, discussion",
+          "translation": "dialogue, discussion",
+          "word": "διάλογος"
+        }
+      ]
+    }
+  ]
+}

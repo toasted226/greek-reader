@@ -1,5 +1,7 @@
 namespace GreekReader.Parsing
 
+open GreekReader.Wiktionary
+
 module Utils =
     
     let rec pickGender acc tags =
@@ -25,3 +27,9 @@ module Utils =
       | "singular" :: _ when Option.isNone acc -> Some("singular")
       | "plural" :: _ when Option.isNone acc -> Some("plural")
       | _ :: rest -> pickNumber acc rest
+      
+    let getGlosses (senses: Sense list) : string list =
+      senses
+      |> List.map (fun s -> s.Glosses |> Option.defaultValue [])
+      |> List.concat
+      |> List.distinct
