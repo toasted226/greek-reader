@@ -15,9 +15,11 @@
     <Compile Include="Model\Morphology.fs" />      <!-- no deps                            -->             <!-- -> Grammatical                     -->     <!-- -> every Model/*                   -->
     <Compile Include="Wiktionary/Word.fs" />        <!-- no deps                            -->
     <Compile Include="Wiktionary/Jsonl.fs" />       <!-- -> Word                            -->
+    <Compile Include="Parsing\Utils.fs" />
     <Compile Include="Parsing/Noun.fs" />           <!-- -> Model/* + Wiktionary/*          -->
     <Compile Include="Parsing\Determiner.fs" />
     <Compile Include="Program.fs" />                <!-- -> everything                      -->
+    <None Include="scratch.fsx" />
   </ItemGroup>
 
 </Project>

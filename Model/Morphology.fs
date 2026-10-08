@@ -14,6 +14,11 @@ type CaseForms =
     Genitive: NumberForms
     Vocative: NumberForms }
 
+type GenderForms =
+  { Masculine: CaseForms
+    Feminine: CaseForms
+    Neuter: CaseForms }
+
 type NounInfo =
   { Lemma: string
     Glosses: string list
@@ -23,7 +28,7 @@ type NounInfo =
 type DeterminerInfo =
   { Lemma: string
     Glosses: string list
-    Forms: CaseForms }
+    Forms: GenderForms }
   
 type AnalysedWord =
   | Noun of NounInfo

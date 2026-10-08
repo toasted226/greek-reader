@@ -5,9 +5,6 @@ open GreekReader.Wiktionary
 
 module NounParser =
 
-  let private hasTags (case: string, number: string) (tags: string list) =
-    tags |> List.contains case && tags |> List.contains number
-
   /// Build a lookup map from (case, number) to the form string.
   /// Uses first occurrence if duplicates exist.
   let private buildFormMap (forms: Form list) : Map<string * string, string> =
@@ -16,21 +13,7 @@ module NounParser =
       match f.Tags with
       | None -> None
       | Some tags ->
-        let rec pickCase acc tags =
-          match tags with
-          | [] -> None
-          | "nominative" :: _ when Option.isNone acc -> pickCase (Some("nominative")) tags
-          | "accusative" :: _ when Option.isNone acc -> pickCase (Some("accusative")) tags
-          | "genitive" :: _ when Option.isNone acc -> pickCase (Some("genitive")) tags
-          | "vocative" :: _ when Option.isNone acc -> pickCase (Some("vocative")) tags
-          | _ :: rest -> pickCase acc rest
-        let rec pickNumber acc tags =
-          match tags with
-          | [] -> None
-          | "singular" :: _ when Option.isNone acc -> pickNumber (Some("singular")) tags
-          | "plural" :: _ when Option.isNone acc -> pickNumber (Some("plural")) tags
-          | _ :: rest -> pickNumber acc rest
-        match pickCase None tags, pickNumber None tags with
+        match Utils.pickCase None tags, Utils.pickNumber None tags with
         | Some c, Some n -> Some((c, n), f.Form)
         | _ -> None)
     |> Map.ofList
