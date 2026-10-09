@@ -1,0 +1,1327 @@
+{
+  "pos": "adj",
+  "head_templates": [
+    {
+      "name": "head",
+      "args": {
+        "1": "el",
+        "2": "adjective",
+        "head": "",
+        "sort": "",
+        "g": "m",
+        "3": "feminine",
+        "4": "όμορφη",
+        "5": "",
+        "6": "",
+        "7": "",
+        "8": "",
+        "9": "neuter",
+        "10": "όμορφο",
+        "11": "",
+        "12": ""
+      },
+      "expansion": "όμορφος • (ómorfos) m (feminine όμορφη, neuter όμορφο)"
+    },
+    {
+      "name": "el-adj",
+      "args": {
+        "f": "όμορφη",
+        "n": "όμορφο"
+      },
+      "expansion": "όμορφος • (ómorfos) m (feminine όμορφη, neuter όμορφο)"
+    }
+  ],
+  "forms": [
+    {
+      "form": "ómorfos",
+      "tags": [
+        "romanization"
+      ]
+    },
+    {
+      "form": "όμορφη",
+      "tags": [
+        "feminine"
+      ]
+    },
+    {
+      "form": "όμορφο",
+      "tags": [
+        "neuter"
+      ]
+    },
+    {
+      "form": "no-table-tags",
+      "source": "declension",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-decl-adj",
+      "source": "declension",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "όμορφος",
+      "tags": [
+        "masculine",
+        "nominative",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfos"
+    },
+    {
+      "form": "όμορφη",
+      "tags": [
+        "feminine",
+        "nominative",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfi"
+    },
+    {
+      "form": "όμορφο",
+      "tags": [
+        "neuter",
+        "nominative",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfo"
+    },
+    {
+      "form": "όμορφοι",
+      "tags": [
+        "masculine",
+        "nominative",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfoi"
+    },
+    {
+      "form": "όμορφες",
+      "tags": [
+        "feminine",
+        "nominative",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfes"
+    },
+    {
+      "form": "όμορφα",
+      "tags": [
+        "neuter",
+        "nominative",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfa"
+    },
+    {
+      "form": "όμορφου",
+      "tags": [
+        "genitive",
+        "masculine",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfou"
+    },
+    {
+      "form": "όμορφης",
+      "tags": [
+        "feminine",
+        "genitive",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfis"
+    },
+    {
+      "form": "όμορφου",
+      "tags": [
+        "genitive",
+        "neuter",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfou"
+    },
+    {
+      "form": "όμορφων",
+      "tags": [
+        "genitive",
+        "masculine",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfon"
+    },
+    {
+      "form": "όμορφων",
+      "tags": [
+        "feminine",
+        "genitive",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfon"
+    },
+    {
+      "form": "όμορφων",
+      "tags": [
+        "genitive",
+        "neuter",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfon"
+    },
+    {
+      "form": "όμορφο",
+      "tags": [
+        "accusative",
+        "masculine",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfo"
+    },
+    {
+      "form": "όμορφη",
+      "tags": [
+        "accusative",
+        "feminine",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfi"
+    },
+    {
+      "form": "όμορφο",
+      "tags": [
+        "accusative",
+        "neuter",
+        "singular"
+      ],
+      "source": "declension",
+      "roman": "ómorfo"
+    },
+    {
+      "form": "όμορφους",
+      "tags": [
+        "accusative",
+        "masculine",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfous"
+    },
+    {
+      "form": "όμορφες",
+      "tags": [
+        "accusative",
+        "feminine",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfes"
+    },
+    {
+      "form": "όμορφα",
+      "tags": [
+        "accusative",
+        "neuter",
+        "plural"
+      ],
+      "source": "declension",
+      "roman": "ómorfa"
+    },
+    {
+      "form": "όμορφε",
+      "tags": [
+        "masculine",
+        "singular",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "ómorfe"
+    },
+    {
+      "form": "όμορφη",
+      "tags": [
+        "feminine",
+        "singular",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "ómorfi"
+    },
+    {
+      "form": "όμορφο",
+      "tags": [
+        "neuter",
+        "singular",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "ómorfo"
+    },
+    {
+      "form": "όμορφοι",
+      "tags": [
+        "masculine",
+        "plural",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "ómorfoi"
+    },
+    {
+      "form": "όμορφες",
+      "tags": [
+        "feminine",
+        "plural",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "ómorfes"
+    },
+    {
+      "form": "όμορφα",
+      "tags": [
+        "neuter",
+        "plural",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "ómorfa"
+    },
+    {
+      "form": "no-table-tags",
+      "source": "declension",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-decl-adj",
+      "source": "declension",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "ομορφότερος",
+      "tags": [
+        "comparative",
+        "masculine",
+        "nominative",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteros"
+    },
+    {
+      "form": "ομορφότερη",
+      "tags": [
+        "comparative",
+        "feminine",
+        "nominative",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteri"
+    },
+    {
+      "form": "ομορφότερο",
+      "tags": [
+        "comparative",
+        "neuter",
+        "nominative",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótero"
+    },
+    {
+      "form": "ομορφότεροι",
+      "tags": [
+        "comparative",
+        "masculine",
+        "nominative",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteroi"
+    },
+    {
+      "form": "ομορφότερες",
+      "tags": [
+        "comparative",
+        "feminine",
+        "nominative",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteres"
+    },
+    {
+      "form": "ομορφότερα",
+      "tags": [
+        "comparative",
+        "neuter",
+        "nominative",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótera"
+    },
+    {
+      "form": "ομορφότερου",
+      "tags": [
+        "comparative",
+        "genitive",
+        "masculine",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóterou"
+    },
+    {
+      "form": "ομορφότερης",
+      "tags": [
+        "comparative",
+        "feminine",
+        "genitive",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteris"
+    },
+    {
+      "form": "ομορφότερου",
+      "tags": [
+        "comparative",
+        "genitive",
+        "neuter",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóterou"
+    },
+    {
+      "form": "ομορφότερων",
+      "tags": [
+        "comparative",
+        "genitive",
+        "masculine",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteron"
+    },
+    {
+      "form": "ομορφότερων",
+      "tags": [
+        "comparative",
+        "feminine",
+        "genitive",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteron"
+    },
+    {
+      "form": "ομορφότερων",
+      "tags": [
+        "comparative",
+        "genitive",
+        "neuter",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteron"
+    },
+    {
+      "form": "ομορφότερο",
+      "tags": [
+        "accusative",
+        "comparative",
+        "masculine",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótero"
+    },
+    {
+      "form": "ομορφότερη",
+      "tags": [
+        "accusative",
+        "comparative",
+        "feminine",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteri"
+    },
+    {
+      "form": "ομορφότερο",
+      "tags": [
+        "accusative",
+        "comparative",
+        "neuter",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótero"
+    },
+    {
+      "form": "ομορφότερους",
+      "tags": [
+        "accusative",
+        "comparative",
+        "masculine",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóterous"
+    },
+    {
+      "form": "ομορφότερες",
+      "tags": [
+        "accusative",
+        "comparative",
+        "feminine",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteres"
+    },
+    {
+      "form": "ομορφότερα",
+      "tags": [
+        "accusative",
+        "comparative",
+        "neuter",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótera"
+    },
+    {
+      "form": "ομορφότερε",
+      "tags": [
+        "comparative",
+        "masculine",
+        "singular",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótere"
+    },
+    {
+      "form": "ομορφότερη",
+      "tags": [
+        "comparative",
+        "feminine",
+        "singular",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteri"
+    },
+    {
+      "form": "ομορφότερο",
+      "tags": [
+        "comparative",
+        "neuter",
+        "singular",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótero"
+    },
+    {
+      "form": "ομορφότεροι",
+      "tags": [
+        "comparative",
+        "masculine",
+        "plural",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteroi"
+    },
+    {
+      "form": "ομορφότερες",
+      "tags": [
+        "comparative",
+        "feminine",
+        "plural",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfóteres"
+    },
+    {
+      "form": "ομορφότερα",
+      "tags": [
+        "comparative",
+        "neuter",
+        "plural",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótera"
+    },
+    {
+      "form": "no-table-tags",
+      "source": "declension",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-decl-adj",
+      "source": "declension",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "ομορφότατος",
+      "tags": [
+        "comparative",
+        "masculine",
+        "nominative",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatos"
+    },
+    {
+      "form": "ομορφότατη",
+      "tags": [
+        "comparative",
+        "feminine",
+        "nominative",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótati"
+    },
+    {
+      "form": "ομορφότατο",
+      "tags": [
+        "comparative",
+        "neuter",
+        "nominative",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótato"
+    },
+    {
+      "form": "ομορφότατοι",
+      "tags": [
+        "comparative",
+        "masculine",
+        "nominative",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatoi"
+    },
+    {
+      "form": "ομορφότατες",
+      "tags": [
+        "comparative",
+        "feminine",
+        "nominative",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótates"
+    },
+    {
+      "form": "ομορφότατα",
+      "tags": [
+        "comparative",
+        "neuter",
+        "nominative",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótata"
+    },
+    {
+      "form": "ομορφότατου",
+      "tags": [
+        "comparative",
+        "genitive",
+        "masculine",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatou"
+    },
+    {
+      "form": "ομορφότατης",
+      "tags": [
+        "comparative",
+        "feminine",
+        "genitive",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatis"
+    },
+    {
+      "form": "ομορφότατου",
+      "tags": [
+        "comparative",
+        "genitive",
+        "neuter",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatou"
+    },
+    {
+      "form": "ομορφότατων",
+      "tags": [
+        "comparative",
+        "genitive",
+        "masculine",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótaton"
+    },
+    {
+      "form": "ομορφότατων",
+      "tags": [
+        "comparative",
+        "feminine",
+        "genitive",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótaton"
+    },
+    {
+      "form": "ομορφότατων",
+      "tags": [
+        "comparative",
+        "genitive",
+        "neuter",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótaton"
+    },
+    {
+      "form": "ομορφότατο",
+      "tags": [
+        "accusative",
+        "comparative",
+        "masculine",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótato"
+    },
+    {
+      "form": "ομορφότατη",
+      "tags": [
+        "accusative",
+        "comparative",
+        "feminine",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótati"
+    },
+    {
+      "form": "ομορφότατο",
+      "tags": [
+        "accusative",
+        "comparative",
+        "neuter",
+        "singular",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótato"
+    },
+    {
+      "form": "ομορφότατους",
+      "tags": [
+        "accusative",
+        "comparative",
+        "masculine",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatous"
+    },
+    {
+      "form": "ομορφότατες",
+      "tags": [
+        "accusative",
+        "comparative",
+        "feminine",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótates"
+    },
+    {
+      "form": "ομορφότατα",
+      "tags": [
+        "accusative",
+        "comparative",
+        "neuter",
+        "plural",
+        "superlative"
+      ],
+      "source": "declension",
+      "roman": "omorfótata"
+    },
+    {
+      "form": "ομορφότατε",
+      "tags": [
+        "comparative",
+        "masculine",
+        "singular",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótate"
+    },
+    {
+      "form": "ομορφότατη",
+      "tags": [
+        "comparative",
+        "feminine",
+        "singular",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótati"
+    },
+    {
+      "form": "ομορφότατο",
+      "tags": [
+        "comparative",
+        "neuter",
+        "singular",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótato"
+    },
+    {
+      "form": "ομορφότατοι",
+      "tags": [
+        "comparative",
+        "masculine",
+        "plural",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótatoi"
+    },
+    {
+      "form": "ομορφότατες",
+      "tags": [
+        "comparative",
+        "feminine",
+        "plural",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótates"
+    },
+    {
+      "form": "ομορφότατα",
+      "tags": [
+        "comparative",
+        "neuter",
+        "plural",
+        "superlative",
+        "vocative"
+      ],
+      "source": "declension",
+      "roman": "omorfótata"
+    },
+    {
+      "form": "no-table-tags",
+      "source": "declension",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-decl-adj",
+      "source": "declension",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "Derivations: relative superlative: ο + comparative forms: e.g. ο ομορφότερος , etc.",
+      "source": "declension",
+      "roman": "o omorfóteros"
+    }
+  ],
+  "inflection_templates": [
+    {
+      "name": "el-decl-adj",
+      "args": {
+        "dec": "ος-η-ο",
+        "stem": "όμορφ",
+        "compstem": "ομορφότερ",
+        "abstem": "ομορφότατ"
+      }
+    },
+    {
+      "name": "el-decl-adj-a",
+      "args": {
+        "form": "",
+        "dec": "ος-η-ο",
+        "stem": "όμορφ",
+        "stem2": "",
+        "posnote": "",
+        "compstem": "ομορφότερ",
+        "compstem2": "",
+        "abstem": "ομορφότατ",
+        "abstem2": "",
+        "docnote": "",
+        "lemma": "",
+        "nopio": "",
+        "part": "",
+        "nocat": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-positive",
+      "args": {
+        "header": "Declension of όμορφος",
+        "dec": "ος-η-ο",
+        "stem": "όμορφ",
+        "stem2": "",
+        "note": "",
+        "pionote": "Comparative: <i class=\"Grek mention\" lang=\"el\">πιο</i> + positive forms (e.g. πιο όμορφος, etc.)\n Relative superlative: definite article + πιο + positive forms (e.g. ο πιο όμορφος, etc.)"
+      }
+    },
+    {
+      "name": "el-decl-adj-ος-η-ο",
+      "args": {
+        "form": "",
+        "stem": "όμορφ",
+        "stem2": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-table",
+      "args": {
+        "1": "όμορφος (ómorfos)",
+        "2": "όμορφη (ómorfi)",
+        "3": "όμορφο (ómorfo)",
+        "4": "όμορφοι (ómorfoi)",
+        "5": "όμορφες (ómorfes)",
+        "6": "όμορφα (ómorfa)",
+        "7": "όμορφου (ómorfou)",
+        "8": "όμορφης (ómorfis)",
+        "9": "όμορφου (ómorfou)",
+        "10": "όμορφων (ómorfon)",
+        "11": "όμορφων (ómorfon)",
+        "12": "όμορφων (ómorfon)",
+        "13": "όμορφο (ómorfo)",
+        "14": "όμορφη (ómorfi)",
+        "15": "όμορφο (ómorfo)",
+        "16": "όμορφους (ómorfous)",
+        "17": "όμορφες (ómorfes)",
+        "18": "όμορφα (ómorfa)",
+        "19": "όμορφε (ómorfe)",
+        "20": "όμορφη (ómorfi)",
+        "21": "όμορφο (ómorfo)",
+        "22": "όμορφοι (ómorfoi)",
+        "23": "όμορφες (ómorfes)",
+        "24": "όμορφα (ómorfa)"
+      }
+    },
+    {
+      "name": "el-decl-adj-degrees",
+      "args": {
+        "compstem": "ομορφότερ",
+        "compstem2": "",
+        "abstem": "ομορφότατ",
+        "abstem2": "",
+        "note": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-ος-η-ο-degrees",
+      "args": {
+        "stem": "ομορφότερ",
+        "stem2": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-table",
+      "args": {
+        "1": "ομορφότερος (omorfóteros)",
+        "2": "ομορφότερη (omorfóteri)",
+        "3": "ομορφότερο (omorfótero)",
+        "4": "ομορφότεροι (omorfóteroi)",
+        "5": "ομορφότερες (omorfóteres)",
+        "6": "ομορφότερα (omorfótera)",
+        "7": "ομορφότερου (omorfóterou)",
+        "8": "ομορφότερης (omorfóteris)",
+        "9": "ομορφότερου (omorfóterou)",
+        "10": "ομορφότερων (omorfóteron)",
+        "11": "ομορφότερων (omorfóteron)",
+        "12": "ομορφότερων (omorfóteron)",
+        "13": "ομορφότερο (omorfótero)",
+        "14": "ομορφότερη (omorfóteri)",
+        "15": "ομορφότερο (omorfótero)",
+        "16": "ομορφότερους (omorfóterous)",
+        "17": "ομορφότερες (omorfóteres)",
+        "18": "ομορφότερα (omorfótera)",
+        "19": "ομορφότερε (omorfótere)",
+        "20": "ομορφότερη (omorfóteri)",
+        "21": "ομορφότερο (omorfótero)",
+        "22": "ομορφότεροι (omorfóteroi)",
+        "23": "ομορφότερες (omorfóteres)",
+        "24": "ομορφότερα (omorfótera)"
+      }
+    },
+    {
+      "name": "el-decl-adj-ος-η-ο-degrees",
+      "args": {
+        "stem": "ομορφότατ",
+        "stem2": ""
+      }
+    },
+    {
+      "name": "el-decl-adj-table",
+      "args": {
+        "1": "ομορφότατος (omorfótatos)",
+        "2": "ομορφότατη (omorfótati)",
+        "3": "ομορφότατο (omorfótato)",
+        "4": "ομορφότατοι (omorfótatoi)",
+        "5": "ομορφότατες (omorfótates)",
+        "6": "ομορφότατα (omorfótata)",
+        "7": "ομορφότατου (omorfótatou)",
+        "8": "ομορφότατης (omorfótatis)",
+        "9": "ομορφότατου (omorfótatou)",
+        "10": "ομορφότατων (omorfótaton)",
+        "11": "ομορφότατων (omorfótaton)",
+        "12": "ομορφότατων (omorfótaton)",
+        "13": "ομορφότατο (omorfótato)",
+        "14": "ομορφότατη (omorfótati)",
+        "15": "ομορφότατο (omorfótato)",
+        "16": "ομορφότατους (omorfótatous)",
+        "17": "ομορφότατες (omorfótates)",
+        "18": "ομορφότατα (omorfótata)",
+        "19": "ομορφότατε (omorfótate)",
+        "20": "ομορφότατη (omorfótati)",
+        "21": "ομορφότατο (omorfótato)",
+        "22": "ομορφότατοι (omorfótatoi)",
+        "23": "ομορφότατες (omorfótates)",
+        "24": "ομορφότατα (omorfótata)"
+      }
+    }
+  ],
+  "etymology_text": "Inherited from Byzantine Greek ὄμορφος (ómorphos) < ἔμορφος (émorphos), from the Ancient Greek εὔμορφος (eúmorphos), from εὖ (eû) + μορφή (morphḗ).\nTypological comparisons:\n* First element (εὖ (eû)): сompare Latin bellus < duonus.\n* Second element (μορφή (morphḗ)): сompare Latin fōrmōsus, fōrmō (< fōrma).\nSee bellus, fōrmōsus for more.",
+  "etymology_links": [
+    [
+      "ὄμορφος",
+      "ὄμορφος#Ancient_Greek"
+    ],
+    [
+      "ἔμορφος",
+      "ἔμορφος#Ancient_Greek"
+    ],
+    [
+      "εὔμορφος",
+      "εὔμορφος#Ancient_Greek"
+    ],
+    [
+      "εὖ",
+      "εὖ#Ancient_Greek"
+    ],
+    [
+      "μορφή",
+      "μορφή#Ancient_Greek"
+    ],
+    [
+      "εὖ",
+      "εὖ#Ancient_Greek"
+    ],
+    [
+      "bellus",
+      "bellus#Latin"
+    ],
+    [
+      "duonus",
+      "duonus#Latin"
+    ],
+    [
+      "μορφή",
+      "μορφή#Ancient_Greek"
+    ],
+    [
+      "fōrmōsus",
+      "formosus#Latin"
+    ],
+    [
+      "fōrmō",
+      "formo#Latin"
+    ],
+    [
+      "fōrma",
+      "forma#Latin"
+    ],
+    [
+      "bellus",
+      "bellus#Latin"
+    ],
+    [
+      "fōrmōsus",
+      "formosus#Latin"
+    ]
+  ],
+  "etymology_templates": [
+    {
+      "name": "yesno",
+      "args": {
+        "1": "",
+        "2": "i",
+        "3": "I"
+      },
+      "expansion": "I"
+    },
+    {
+      "name": "glossary",
+      "args": {
+        "1": "Inherited"
+      },
+      "expansion": "Inherited"
+    },
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "gkm",
+        "3": "ὄμορφος",
+        "4": "",
+        "5": "",
+        "lit": "",
+        "pos": "",
+        "tr": "",
+        "ts": "",
+        "id": "",
+        "sc": "",
+        "g": "",
+        "g2": "",
+        "g3": "",
+        "nocat": "",
+        "sort": ""
+      },
+      "expansion": "Byzantine Greek ὄμορφος (ómorphos)"
+    },
+    {
+      "name": "inh+",
+      "args": {
+        "1": "el",
+        "2": "gkm",
+        "3": "ὄμορφος"
+      },
+      "expansion": "Inherited from Byzantine Greek ὄμορφος (ómorphos)"
+    },
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "grc",
+        "3": "εὔμορφος"
+      },
+      "expansion": "Ancient Greek εὔμορφος (eúmorphos)"
+    },
+    {
+      "name": "m+",
+      "args": {
+        "1": "la",
+        "2": "bellus"
+      },
+      "expansion": "Latin bellus"
+    },
+    {
+      "name": "m+",
+      "args": {
+        "1": "la",
+        "2": "fōrmōsus"
+      },
+      "expansion": "Latin fōrmōsus"
+    }
+  ],
+  "sounds": [
+    {
+      "ipa": "/ˈo.moɾ.fos/"
+    }
+  ],
+  "hyphenations": [
+    {
+      "parts": [
+        "ό",
+        "μορ",
+        "φος"
+      ]
+    }
+  ],
+  "word": "όμορφος",
+  "lang": "Greek",
+  "lang_code": "el",
+  "senses": [
+    {
+      "links": [
+        [
+          "beautiful",
+          "beautiful"
+        ],
+        [
+          "pretty",
+          "pretty"
+        ],
+        [
+          "handsome",
+          "handsome"
+        ]
+      ],
+      "glosses": [
+        "beautiful, pretty, handsome (especially of objects, pictures etc)"
+      ],
+      "tags": [
+        "masculine"
+      ],
+      "id": "en-όμορφος-el-adj-3WX-eZ3I",
+      "categories": [
+        {
+          "name": "Greek adjectives in declension ος-η-ο",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Greek entries with incorrect language header",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Pages with 1 entry",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        },
+        {
+          "name": "Pages with entries",
+          "kind": "other",
+          "parents": [],
+          "source": "w"
+        }
+      ],
+      "synonyms": [
+        {
+          "roman": "charitoménos",
+          "english": "pretty, beautiful; especially of girls, children, women, etc",
+          "translation": "pretty, beautiful; especially of girls, children, women, etc",
+          "word": "χαριτωμένος"
+        },
+        {
+          "roman": "oraíos",
+          "word": "ωραίος"
+        }
+      ],
+      "derived": [
+        {
+          "tags": [
+            "feminine"
+          ],
+          "roman": "omorfiá",
+          "english": "beauty",
+          "translation": "beauty",
+          "word": "ομορφιά"
+        }
+      ],
+      "related": [
+        {
+          "tags": [
+            "feminine"
+          ],
+          "sense": "see",
+          "roman": "morfí",
+          "english": "shape, form",
+          "translation": "shape, form",
+          "word": "μορφή"
+        }
+      ]
+    }
+  ]
+}

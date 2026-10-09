@@ -1,5 +1,6 @@
 namespace GreekReader.Parsing
 
+open System.Linq
 open GreekReader.Wiktionary
 
 module Utils =
@@ -33,3 +34,14 @@ module Utils =
       |> List.map (fun s -> s.Glosses |> Option.defaultValue [])
       |> List.concat
       |> List.distinct
+      
+    /// returns true if at least one of the provided tags are
+    /// present in one of the given forms
+    let formsHaveTags (tags: string list) (forms: Form list) : bool =
+        forms
+        |> List.exists (fun f ->
+            tags
+            |> List.exists (fun t -> List.contains t (f.Tags |> Option.defaultValue [])))
+
+    let withTag (tag: string) (forms: Form list) : Form list =
+        forms |> List.filter (fun f -> (f.Tags |> Option.defaultValue []).Contains(tag))
