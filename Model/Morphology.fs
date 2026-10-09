@@ -59,6 +59,11 @@ type InfinitiveForms =
   { Active: string option
     Passive: string option }
 
+type DegreeForms =
+  { Positive: GenderForms
+    Comparative: GenderForms
+    Superlative: GenderForms }
+
 type VerbForms =
   { Moods: MoodForms
     Participles: ParticipleForms
@@ -79,8 +84,15 @@ type VerbInfo =
   { Lemma: string
     Glosses: string list
     Conjugations: VerbForms }
+
+type AdjectiveInfo =
+  { Lemma: string
+    Glosses: string list
+    Degrees: DegreeForms }
   
 type AnalysedWord =
   | Noun of NounInfo
   | Determiner of DeterminerInfo
   | Verb of VerbInfo
+  | Adjective of AdjectiveInfo
+  
