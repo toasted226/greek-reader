@@ -7,10 +7,10 @@
 #load "Parsing/Verbs.fs"
 #load "Program.fs"
 
+open GreekReader.Parsing.VerbParser
 open GreekReader.Wiktionary
 open Jsonl
-open GreekReader.Parsing
 
+#time "on"
 let word = parseLine<Word>("verb.json")
-let forms = word.Forms |> Option.defaultValue []
-let moods = VerbParser.getMoods forms
+let verb = analyse word

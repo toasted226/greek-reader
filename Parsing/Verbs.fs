@@ -16,10 +16,16 @@ module VerbParser =
 
     let withTag (tag: string) (forms: Form list) : Form list =
         forms |> List.filter (fun f -> (f.Tags |> Option.defaultValue []).Contains(tag))
+    
+    let getForm (forms: Form list) : string option =
+        match forms |> List.tryHead |> Option.map _.Form with
+        | Some "-" -> None
+        | Some s -> Some(s)
+        | None -> None
 
     let getNumbers (forms: Form list) : NumberForms =
-        { Singular = forms |> withTag "singular" |> List.tryHead |> Option.map _.Form
-          Plural = forms |> withTag "plural" |> List.tryHead |> Option.map _.Form }
+        { Singular = forms |> withTag "singular" |> getForm
+          Plural = forms |> withTag "plural" |> getForm }
 
     let getPersons (forms: Form list) : PersonForms =
         { FirstPerson = forms |> withTag "first-person" |> getNumbers
@@ -52,15 +58,26 @@ module VerbParser =
         { Indicative = forms |> withTag "indicative" |> getVoices
           Imperative = forms |> withTag "imperative" |> getVoices }
 
-    let getParticiples (forms: Form list) : ParticipleForms = failwith "participles unimplemented"
+    let getParticipleTenses (forms: Form list) : ParticipleTenseForms =
+        { Present = forms |> withTag "present" |> List.tryHead |> Option.map _.Form
+          Past = forms |> withTag "past" |> List.tryHead |> Option.map _.Form
+          Perfect = forms |> withTag "perfect" |> List.tryHead |> Option.map _.Form }
+
+    let getParticipleVoices (forms: Form list) : ParticipleVoiceForms =
+        { Active = forms |> withTag "active" |> getParticipleTenses
+          Passive = forms |> withTag "passive" |> getParticipleTenses }
+
+    let getParticiples (forms: Form list) : ParticipleForms =
+        { Voice = forms |> withTag "participle" |> getParticipleVoices }
 
     let getAoristInfinitives (forms: Form list) : InfinitiveForms =
-        failwith "aorist infinitives unimplemented"
+        { Active = forms |> withTag "active" |> List.tryHead |> Option.map _.Form
+          Passive = forms |> withTag "passive" |> List.tryHead |> Option.map _.Form }
 
     let getVerbForms (forms: Form list) : VerbForms =
         { Moods = getMoods forms
           Participles = getParticiples forms
-          AoristInfinitives = getAoristInfinitives forms }
+          AoristInfinitives = forms |> withTag "infinitive-aorist" |> getAoristInfinitives }
 
     let analyse (w: Word) : AnalysedWord =
         Verb
