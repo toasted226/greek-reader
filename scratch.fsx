@@ -2,15 +2,12 @@
 #load "Wiktionary/Word.fs"
 #load "Wiktionary/Jsonl.fs"
 #load "Parsing/Utils.fs"
-#load "Parsing/Noun.fs"
-#load "Parsing/Determiner.fs"
-#load "Parsing/Verbs.fs"
-#load "Program.fs"
+#load "Parsing/Adjective.fs"
 
-open GreekReader.Parsing.VerbParser
+open GreekReader.Parsing.AdjectiveParser
 open GreekReader.Wiktionary
 open Jsonl
 
 #time "on"
-let word = parseLine<Word>("verb.json")
-let verb = analyse word
+let word = parseLine<Word>("adjective.json")
+let analysed = analyse word

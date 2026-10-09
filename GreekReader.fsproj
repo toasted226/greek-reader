@@ -16,8 +16,8 @@
     <Compile Include="Wiktionary/Word.fs" />        <!-- no deps                            -->
     <Compile Include="Wiktionary/Jsonl.fs" />       <!-- -> Word                            -->
     <Compile Include="Parsing\Utils.fs" />
-    <Compile Include="Parsing\Verbs.fs" />
-    <Compile Include="Parsing\Adjectives.fs" />
+    <Compile Include="Parsing\Verb.fs" />
+    <Compile Include="Parsing\Adjective.fs" />
     <Compile Include="Parsing/Noun.fs" />           <!-- -> Model/* + Wiktionary/*          -->
     <Compile Include="Parsing\Determiner.fs" />
     <Compile Include="Program.fs" />                <!-- -> everything                      -->
