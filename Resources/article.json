@@ -1,0 +1,357 @@
+{
+  "pos": "article",
+  "head_templates": [
+    {
+      "name": "head",
+      "args": {
+        "1": "el",
+        "2": "article",
+        "head": "",
+        "sort": "",
+        "g": "m",
+        "g2": "",
+        "g3": ""
+      },
+      "expansion": "ένας • (énas) m"
+    },
+    {
+      "name": "el-art",
+      "args": {
+        "g": "m"
+      },
+      "expansion": "ένας • (énas) m"
+    }
+  ],
+  "forms": [
+    {
+      "form": "énas",
+      "tags": [
+        "romanization"
+      ]
+    },
+    {
+      "form": "no-table-tags",
+      "source": "declension",
+      "tags": [
+        "table-tags"
+      ]
+    },
+    {
+      "form": "el-art-indef",
+      "source": "declension",
+      "tags": [
+        "inflection-template"
+      ]
+    },
+    {
+      "form": "ένας",
+      "tags": [
+        "indefinite",
+        "masculine",
+        "nominative"
+      ],
+      "source": "declension",
+      "roman": "énas"
+    },
+    {
+      "form": "μια",
+      "tags": [
+        "feminine",
+        "indefinite",
+        "nominative"
+      ],
+      "source": "declension",
+      "roman": "mia"
+    },
+    {
+      "form": "μία",
+      "tags": [
+        "feminine",
+        "indefinite",
+        "nominative"
+      ],
+      "source": "declension",
+      "roman": "mía¹"
+    },
+    {
+      "form": "ένα",
+      "tags": [
+        "indefinite",
+        "neuter",
+        "nominative"
+      ],
+      "source": "declension",
+      "roman": "éna"
+    },
+    {
+      "form": "ενός",
+      "tags": [
+        "genitive",
+        "indefinite",
+        "masculine"
+      ],
+      "source": "declension",
+      "roman": "enós"
+    },
+    {
+      "form": "μιας",
+      "tags": [
+        "feminine",
+        "genitive",
+        "indefinite"
+      ],
+      "source": "declension",
+      "roman": "mias"
+    },
+    {
+      "form": "μίας",
+      "tags": [
+        "feminine",
+        "genitive",
+        "indefinite"
+      ],
+      "source": "declension",
+      "roman": "mías¹"
+    },
+    {
+      "form": "ενός",
+      "tags": [
+        "genitive",
+        "indefinite",
+        "neuter"
+      ],
+      "source": "declension",
+      "roman": "enós"
+    },
+    {
+      "form": "ένα",
+      "tags": [
+        "accusative",
+        "indefinite",
+        "masculine"
+      ],
+      "source": "declension",
+      "roman": "éna"
+    },
+    {
+      "form": "έναν",
+      "tags": [
+        "accusative",
+        "indefinite",
+        "masculine"
+      ],
+      "source": "declension",
+      "roman": "énan²"
+    },
+    {
+      "form": "μια",
+      "tags": [
+        "accusative",
+        "feminine",
+        "indefinite"
+      ],
+      "source": "declension",
+      "roman": "mia"
+    },
+    {
+      "form": "μιαν",
+      "tags": [
+        "accusative",
+        "feminine",
+        "indefinite"
+      ],
+      "source": "declension",
+      "roman": "mian²"
+    },
+    {
+      "form": "μία",
+      "tags": [
+        "accusative",
+        "feminine",
+        "indefinite"
+      ],
+      "source": "declension",
+      "roman": "mía¹"
+    },
+    {
+      "form": "μίαν (mían¹⁺²)",
+      "tags": [
+        "accusative",
+        "feminine",
+        "indefinite"
+      ],
+      "source": "declension"
+    },
+    {
+      "form": "ένα",
+      "tags": [
+        "accusative",
+        "indefinite",
+        "neuter"
+      ],
+      "source": "declension",
+      "roman": "éna"
+    }
+  ],
+  "inflection_templates": [
+    {
+      "name": "el-decl-3-novoc",
+      "args": {
+        "header": "The indefinite article",
+        "1": "ένας",
+        "2v": "μια (mia)\nμία¹ (mía¹)",
+        "3": "ένα",
+        "4": "ενός",
+        "5v": "μιας (mias)\nμίας¹ (mías¹)",
+        "6": "ενός",
+        "7v": "ένα (éna)\nέναν² (énan²)",
+        "8v": "μια (mia)\nμιαν² (mian²)\nμία¹ (mía¹)\nμίαν¹⁺² (mían¹⁺²)",
+        "9": "ένα",
+        "note": "1. Emphatic forms that stress singularity.\n2. Final ν is preserved before vowels, and the plosive/affricate consonants: κ, π, τ, ξ, ψ, μπ, ντ, γκ, τσ, τζ."
+      }
+    },
+    {
+      "name": "el-decl-adj-half-table-novoc",
+      "args": {
+        "1": "ένας (énas)",
+        "2": "μια (mia)\nμία¹ (mía¹)",
+        "3": "ένα (éna)",
+        "4": "ενός (enós)",
+        "5": "μιας (mias)\nμίας¹ (mías¹)",
+        "6": "ενός (enós)",
+        "7": "ένα (éna)\nέναν² (énan²)",
+        "8": "μια (mia)\nμιαν² (mian²)\nμία¹ (mía¹)\nμίαν¹⁺² (mían¹⁺²)",
+        "9": "ένα (éna)"
+      }
+    }
+  ],
+  "etymology_text": "From Byzantine Greek ἕνας (hénas), from Ancient Greek ἕνα (héna) the accusative of εἷς (heîs), from Proto-Hellenic *hens, *hmia, from Proto-Indo-European *sḗm, *smih₂.",
+  "etymology_links": [
+    [
+      "ἕνας",
+      "ἕνας#Ancient_Greek"
+    ],
+    [
+      "ἕνα",
+      "ἕνα#Ancient_Greek"
+    ],
+    [
+      "εἷς",
+      "εἷς#Ancient_Greek"
+    ],
+    [
+      "*hens, *hmia",
+      "Reconstruction:Proto-Hellenic/hens"
+    ],
+    [
+      "*sḗm, *smih₂",
+      "Reconstruction:Proto-Indo-European/sḗm"
+    ]
+  ],
+  "etymology_templates": [
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "gkm",
+        "3": "ἕνας"
+      },
+      "expansion": "Byzantine Greek ἕνας (hénas)"
+    },
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "grc",
+        "3": "ἕνα"
+      },
+      "expansion": "Ancient Greek ἕνα (héna)"
+    },
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "grk-pro",
+        "3": "*hens",
+        "4": "*hens, *hmia"
+      },
+      "expansion": "Proto-Hellenic *hens, *hmia"
+    },
+    {
+      "name": "inh",
+      "args": {
+        "1": "el",
+        "2": "ine-pro",
+        "3": "*sḗm",
+        "4": "*sḗm, *smih₂"
+      },
+      "expansion": "Proto-Indo-European *sḗm, *smih₂"
+    }
+  ],
+  "sounds": [
+    {
+      "ipa": "/ˈenas/"
+    },
+    {
+      "ipa": "[ˈe̞nas]"
+    }
+  ],
+  "word": "ένας",
+  "lang": "Greek",
+  "lang_code": "el",
+  "categories": [
+    {
+      "name": "Greek articles",
+      "kind": "other",
+      "parents": [],
+      "source": "w+disamb",
+      "_dis": "0 0"
+    },
+    {
+      "name": "Greek entries with incorrect language header",
+      "kind": "other",
+      "parents": [],
+      "source": "w+disamb",
+      "_dis": "0 0"
+    },
+    {
+      "name": "Pages with 1 entry",
+      "kind": "other",
+      "parents": [],
+      "source": "w+disamb",
+      "_dis": "0 0"
+    },
+    {
+      "name": "Pages with entries",
+      "kind": "other",
+      "parents": [],
+      "source": "w+disamb",
+      "_dis": "0 0"
+    }
+  ],
+  "senses": [
+    {
+      "links": [
+        [
+          "a",
+          "a"
+        ],
+        [
+          "an",
+          "an"
+        ]
+      ],
+      "raw_glosses": [
+        "(indefinite) a, an"
+      ],
+      "glosses": [
+        "a, an"
+      ],
+      "tags": [
+        "indefinite",
+        "masculine"
+      ],
+      "id": "en-ένας-el-article-jF9Wbm2d"
+    }
+  ]
+}

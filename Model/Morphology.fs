@@ -3,6 +3,7 @@ namespace GreekReader.Model
 type Gender = Masculine | Feminine | Neuter
 type Number = Singular | Plural
 type Case = Nominative | Accusative | Genitive | Vocative
+type ArticleType = Definite | Indefinite
 
 type NumberForms =
   { Singular: string option
@@ -98,11 +99,17 @@ type AdverbInfo =
   { Lemma: string
     Glosses: string list
     Degrees: AdverbDegrees }
-  
+
+type ArticleInfo =
+  { Lemma: string
+    Glosses: string list
+    Type: ArticleType
+    Inflections: GenderForms }
+
 type AnalysedWord =
   | Noun of NounInfo
   | Determiner of DeterminerInfo
   | Verb of VerbInfo
   | Adjective of AdjectiveInfo
   | Adverb of AdverbInfo
-  
+  | Article of ArticleInfo

@@ -18,13 +18,17 @@
     <Compile Include="Parsing\Utils.fs" />
     <Compile Include="Parsing\Verb.fs" />
     <Compile Include="Parsing\Adjective.fs" />
+    <Compile Include="Parsing\Article.fs" />
     <Compile Include="Parsing/Noun.fs" />           <!-- -> Model/* + Wiktionary/*          -->
     <Compile Include="Parsing\Determiner.fs" />
     <Compile Include="Parsing\Adverb.fs" />
     <Compile Include="Program.fs" />                <!-- -> everything                      -->
-    <Content Include="adverb.json" />
     <Content Include="verb.json" />
     <None Include="scratch.fsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\article.json" />
   </ItemGroup>
 
 </Project>
