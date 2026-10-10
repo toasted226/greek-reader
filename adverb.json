@@ -1,0 +1,101 @@
+{
+  "pos": "adv",
+  "head_templates": [
+    {
+      "name": "head",
+      "args": {
+        "1": "el",
+        "2": "adverbs",
+        "head": "",
+        "sort": "",
+        "3": "comparative",
+        "4": "καλύτερα",
+        "5": "absolute superlative",
+        "6": "κάλλιστα"
+      },
+      "expansion": "καλά • (kalá) (comparative καλύτερα, absolute superlative κάλλιστα)"
+    },
+    {
+      "name": "el-adv",
+      "args": {
+        "comp": "καλύτερα",
+        "sup": "κάλλιστα"
+      },
+      "expansion": "καλά • (kalá) (comparative καλύτερα, absolute superlative κάλλιστα)"
+    }
+  ],
+  "forms": [
+    {
+      "form": "καλά",
+      "tags": [
+        "canonical"
+      ]
+    },
+    {
+      "form": "άριστα",
+      "tags": [
+        "canonical"
+      ]
+    },
+    {
+      "form": "kalá",
+      "tags": [
+        "romanization"
+      ]
+    },
+    {
+      "form": "καλύτερα",
+      "tags": [
+        "comparative"
+      ]
+    },
+    {
+      "form": "κάλλιστα",
+      "tags": [
+        "absolute",
+        "superlative"
+      ]
+    },
+    {
+      "form": "árista",
+      "tags": [
+        "romanization"
+      ]
+    }
+  ],
+  "word": "καλά",
+  "lang": "Greek",
+  "lang_code": "el",
+  "sounds": [
+    {
+      "ipa": "/kaˈla/"
+    }
+  ],
+  "hyphenations": [
+    {
+      "parts": [
+        "κα",
+        "λά"
+      ]
+    }
+  ],
+  "senses": [
+    {
+      "links": [
+        [
+          "well",
+          "well"
+        ]
+      ],
+      "synonyms": [
+        {
+          "word": "καλώς"
+        }
+      ],
+      "glosses": [
+        "well"
+      ],
+      "id": "en-καλά-el-adv-p3Irdl0V"
+    }
+  ]
+}

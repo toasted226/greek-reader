@@ -69,6 +69,10 @@ type VerbForms =
     Participles: ParticipleForms
     AoristInfinitives: InfinitiveForms }
 
+type AdverbDegrees =
+  { Comparative: string option
+    Superlative: string option }
+
 type NounInfo =
   { Lemma: string
     Glosses: string list
@@ -89,10 +93,16 @@ type AdjectiveInfo =
   { Lemma: string
     Glosses: string list
     Degrees: DegreeForms }
+
+type AdverbInfo =
+  { Lemma: string
+    Glosses: string list
+    Degrees: AdverbDegrees }
   
 type AnalysedWord =
   | Noun of NounInfo
   | Determiner of DeterminerInfo
   | Verb of VerbInfo
   | Adjective of AdjectiveInfo
+  | Adverb of AdverbInfo
   

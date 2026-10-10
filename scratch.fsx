@@ -9,5 +9,5 @@ open GreekReader.Wiktionary
 open Jsonl
 
 #time "on"
-let word = parseLine<Word>("adjective.json")
+let word = parseLine<Word>("Resources/greek-adjectives.jsonl")
 let analysed = analyse word
