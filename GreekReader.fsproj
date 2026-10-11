@@ -22,6 +22,7 @@
     <Compile Include="Parsing/Noun.fs" />           <!-- -> Model/* + Wiktionary/*          -->
     <Compile Include="Parsing\Determiner.fs" />
     <Compile Include="Parsing\Adverb.fs" />
+    <Compile Include="Parsing\Pronoun.fs" />
     <Compile Include="Program.fs" />                <!-- -> everything                      -->
     <Content Include="verb.json" />
     <None Include="scratch.fsx" />

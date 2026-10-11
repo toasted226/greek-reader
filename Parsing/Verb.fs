@@ -4,31 +4,20 @@ open GreekReader.Model
 open GreekReader.Wiktionary
 
 module VerbParser =
-    
-    let getForm (forms: Form list) : string option =
-        match forms |> List.tryHead |> Option.map _.Form with
-        | Some "-" -> None
-        | Some s -> Some(s)
-        | None -> None
-
-    let getNumbers (forms: Form list) : NumberForms =
-        { Singular = forms |> Utils.withTag "singular" |> getForm
-          Plural = forms |> Utils.withTag "plural" |> getForm }
 
     let getPersons (forms: Form list) : PersonForms =
-        { FirstPerson = forms |> Utils.withTag "first-person" |> getNumbers
-          SecondPerson = forms |> Utils.withTag "second-person" |> getNumbers
-          ThirdPerson = forms |> Utils.withTag "third-person" |> getNumbers }
+        { FirstPerson = forms |> Utils.withTag "first-person" |> Utils.getNumbers
+          SecondPerson = forms |> Utils.withTag "second-person" |> Utils.getNumbers
+          ThirdPerson = forms |> Utils.withTag "third-person" |> Utils.getNumbers }
 
     let getTenses (forms: Form list) : TenseForms =
         let hasTense =
             forms |> Utils.formsHaveTags [ "present"; "imperfect"; "past"; "future"; "dependent" ]
 
         { Present =
-            if hasTense then
-                forms |> Utils.withTag "present" |> getPersons
-            else
-                forms |> getPersons
+            match hasTense with
+            | true -> forms |> Utils.withTag "present" |> getPersons
+            | false -> forms |> getPersons
           Imperfect = forms |> Utils.withTag "imperfect" |> getPersons
           Past = forms |> Utils.withTag "past" |> getPersons
           Future = forms |> Utils.withTag "future" |> getPersons

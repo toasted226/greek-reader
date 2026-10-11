@@ -1,6 +1,7 @@
 namespace GreekReader.Parsing
 
 open System.Linq
+open GreekReader.Model
 open GreekReader.Wiktionary
 
 module Utils =
@@ -45,3 +46,23 @@ module Utils =
 
     let withTag (tag: string) (forms: Form list) : Form list =
         forms |> List.filter (fun f -> (f.Tags |> Option.defaultValue []).Contains(tag))
+
+    let getForm (forms: Form list) : string option =
+        match forms |> List.tryHead |> Option.map _.Form with
+        | Some "-" | None -> None
+        | Some s -> Some(s)
+
+    let getNumbers (forms: Form list) : NumberForms =
+        { Singular = forms |> withTag "singular" |> getForm
+          Plural = forms |> withTag "plural" |> getForm }
+    
+    let getCases (forms: Form list) : CaseForms =
+        { Nominative = forms |> withTag "nominative" |> getNumbers
+          Accusative = forms |> withTag "accusative" |> getNumbers
+          Genitive = forms |> withTag "genitive" |> getNumbers
+          Vocative = forms |> withTag "vocative" |> getNumbers }
+
+    let getGender (forms: Form list) : GenderForms =
+        { Masculine = forms |> withTag "masculine" |> getCases
+          Feminine = forms |> withTag "feminine" |> getCases
+          Neuter = forms |> withTag "neuter" |> getCases }

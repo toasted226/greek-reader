@@ -5,15 +5,9 @@ open GreekReader.Wiktionary
 
 module AdverbParser =
     
-    let getForm (forms: Form list) : string option =
-        match forms |> List.tryHead |> Option.map _.Form with
-        | Some "-" -> None
-        | Some s -> Some(s)
-        | None -> None
-    
     let getAdverbDegrees (forms: Form list) : AdverbDegrees =
-        { Comparative = forms |> Utils.withTag "comparative" |> getForm
-          Superlative = forms |> Utils.withTag "superlative" |> getForm }
+        { Comparative = forms |> Utils.withTag "comparative" |> Utils.getForm
+          Superlative = forms |> Utils.withTag "superlative" |> Utils.getForm }
     
     let analyse (w: Word) : AnalysedWord =
         Adverb
