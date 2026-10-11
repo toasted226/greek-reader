@@ -139,6 +139,11 @@ type ConjunctionInfo =
     { Lemma: string
       Glosses: string list
       Examples: Example list }
+    
+type InterjectionInfo =
+    { Lemma: string
+      Glosses: string list
+      Examples: Example list }
 
 type AnalysedWord =
     | Noun of NounInfo
@@ -150,3 +155,4 @@ type AnalysedWord =
     | Pronoun of PronounInfo
     | Preposition of PrepositionInfo
     | Conjunction of ConjunctionInfo
+    | Interjection of InterjectionInfo
