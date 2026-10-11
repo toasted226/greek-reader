@@ -24,6 +24,7 @@
     <Compile Include="Parsing\Adverb.fs" />
     <Compile Include="Parsing\Pronoun.fs" />
     <Compile Include="Parsing\Preposition.fs" />
+    <Compile Include="Parsing\Conjunction.fs" />
     <Compile Include="Program.fs" />                <!-- -> everything                      -->
     <Content Include="verb.json" />
     <None Include="scratch.fsx" />

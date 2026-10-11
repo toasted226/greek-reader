@@ -135,6 +135,11 @@ type PrepositionInfo =
       Glosses: string list
       Examples: Example list }
 
+type ConjunctionInfo =
+    { Lemma: string
+      Glosses: string list
+      Examples: Example list }
+
 type AnalysedWord =
     | Noun of NounInfo
     | Determiner of DeterminerInfo
@@ -144,3 +149,4 @@ type AnalysedWord =
     | Article of ArticleInfo
     | Pronoun of PronounInfo
     | Preposition of PrepositionInfo
+    | Conjunction of ConjunctionInfo
