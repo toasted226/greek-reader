@@ -32,9 +32,18 @@ module Utils =
       
     let getGlosses (senses: Sense list) : string list =
       senses
-      |> List.map (fun s -> s.Glosses |> Option.defaultValue [])
+      |> List.choose _.Glosses
       |> List.concat
       |> List.distinct
+    
+    let toModel (e: Example) : GreekReader.Model.Example =
+        { Greek = e.Text; English = e.Translation }
+    
+    let getExamples (senses: Sense list) : GreekReader.Model.Example list =
+        senses
+        |> List.choose _.Examples
+        |> List.concat
+        |> List.map toModel
       
     /// returns true if at least one of the provided tags are
     /// present in one of the given forms

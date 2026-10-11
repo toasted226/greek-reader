@@ -19,6 +19,8 @@ type ArticleType =
     | Definite
     | Indefinite
 
+type Example = { Greek: string; English: string }
+
 type NumberForms =
     { Singular: string option
       Plural: string option }
@@ -128,7 +130,10 @@ type PronounInfo =
       Glosses: string list
       Declensions: PronounDeclensions }
 
-type PrepositionInfo = { Lemma: string; Glosses: string list }
+type PrepositionInfo =
+    { Lemma: string
+      Glosses: string list
+      Examples: Example list }
 
 type AnalysedWord =
     | Noun of NounInfo

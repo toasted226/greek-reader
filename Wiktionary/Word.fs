@@ -6,17 +6,22 @@ namespace GreekReader.Wiktionary
 type Form =
   { Form: string
     Source: string option
-    /// Absent in 37 of the dataset's forms.
     Tags: string list option
     Roman: string option }
 
+type Example =
+  { Text: string
+    Roman: string
+    Translation: string
+    Type: string }
+
 type Sense =
   { Tags: string list option
-    Glosses: string list option }
+    Glosses: string list option
+    Examples: Example list option }
 
 type Word =
   { Pos: string
-    /// Absent entirely in 8 of the dataset's entries (e.g. "ΔΒΔ", "γεν.").
     Forms: Form list option
     Word: string
     Senses: Sense list option }
