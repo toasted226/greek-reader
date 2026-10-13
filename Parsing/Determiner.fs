@@ -41,7 +41,7 @@ module DeterminerParser =
     Determiner
       { Lemma = w.Word
         Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
-        Forms = w.Forms |> Option.defaultValue [] |> getGenderForms }
+        Declensions = w.Forms |> Option.defaultValue [] |> getGenderForms }
 
   let analyseWords (words: Word seq) : AnalysedWord seq =
     words |> Seq.map analyse

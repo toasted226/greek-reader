@@ -42,7 +42,7 @@ module NounParser =
       { Lemma = w.Word
         Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
         Gender = w.Senses |> Option.bind getGender
-        Forms = w.Forms |> Option.defaultValue [] |> getNounForms }
+        Declensions = w.Forms |> Option.defaultValue [] |> getNounForms }
 
   let analyseWords (words: Word seq) : AnalysedWord seq =
     words |> Seq.map analyse

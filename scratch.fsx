@@ -2,12 +2,12 @@
 #load "Wiktionary/Word.fs"
 #load "Wiktionary/Jsonl.fs"
 #load "Parsing/Utils.fs"
-#load "Parsing/Preposition.fs"
+#load "Parsing/ProperNoun.fs"
 
-open GreekReader.Parsing.PrepositionParser
+open GreekReader.Parsing.ProperNounParser
 open GreekReader.Wiktionary
 open Jsonl
 
 #time "on"
-let words = parseLines<Word> ("Resources/greek-prepositions.jsonl") |> Seq.toList
+let words = parseLines<Word> ("Resources/greek-proper-nouns.jsonl") |> Seq.toList
 let analysed = analyseWordsList words

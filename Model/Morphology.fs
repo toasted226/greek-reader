@@ -93,12 +93,12 @@ type NounInfo =
     { Lemma: string
       Glosses: string list
       Gender: Gender option
-      Forms: CaseForms }
+      Declensions: CaseForms }
 
 type DeterminerInfo =
     { Lemma: string
       Glosses: string list
-      Forms: GenderForms }
+      Declensions: GenderForms }
 
 type VerbInfo =
     { Lemma: string
@@ -145,6 +145,27 @@ type InterjectionInfo =
       Glosses: string list
       Examples: Example list }
 
+type NumeralCases =
+    { Nominative: string option
+      Accusative: string option
+      Genitive: string option
+      Vocative: string option }
+
+type NumeralGenders =
+    { Masculine: NumeralCases
+      Feminine: NumeralCases
+      Neuter: NumeralCases }
+
+type NumeralInfo =
+    { Lemma: string
+      Glosses: string list
+      Declensions: NumeralGenders option }
+
+type ProperNounInfo =
+    { Lemma: string
+      Glosses: string list
+      Declensions: CaseForms option }
+
 type AnalysedWord =
     | Noun of NounInfo
     | Determiner of DeterminerInfo
@@ -156,3 +177,5 @@ type AnalysedWord =
     | Preposition of PrepositionInfo
     | Conjunction of ConjunctionInfo
     | Interjection of InterjectionInfo
+    | Numeral of NumeralInfo
+    | ProperNoun of ProperNounInfo
