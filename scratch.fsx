@@ -1,3 +1,5 @@
+#r "nuget: FSharp.Collections.ParallelSeq"
+
 #load "Model/Morphology.fs"
 #load "Wiktionary/Word.fs"
 #load "Wiktionary/Jsonl.fs"
@@ -15,10 +17,11 @@
 #load "Parsing/Numeral.fs"
 #load "Parsing/ProperNoun.fs"
 #load "Parsing/Particle.fs"
+#load "Service.fs"
 #load "Api.fs"
 
 #time "on"
 open GreekReader.API
 
 let results =
-    queryText "δεν"
+    query "δεν"

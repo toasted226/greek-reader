@@ -43,7 +43,10 @@ module API =
             | _ -> ParticleParser.analyse w)
 
     let private parseWiktionaryData (partsOfSpeech: string seq) : Word seq =
-        partsOfSpeech |> Seq.map dataPath |> Seq.map Jsonl.parseWords |> Seq.concat
+        partsOfSpeech
+        |> Seq.map dataPath
+        |> Seq.map Jsonl.parseWords
+        |> Seq.concat
 
     let query (query: string) : AnalysedWord list =
         partsOfSpeech
@@ -76,3 +79,4 @@ module API =
             | [] -> None
             | ws -> Some(q, ws))
         |> Map.ofSeq
+        
