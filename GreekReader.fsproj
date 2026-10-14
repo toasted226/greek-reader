@@ -35,7 +35,6 @@
     <Compile Include="Interop\Convert.fs" />
     <Compile Include="Interop\Json.fs" />
     <Compile Include="Interop\Api.fs" />
-    <Content Include="verb.json" />
     <None Include="scratch.fsx" />
   </ItemGroup>
 
