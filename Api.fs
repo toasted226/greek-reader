@@ -40,7 +40,7 @@ module API =
             | "num" -> NumeralParser.analyse w
             | "name" -> ProperNounParser.analyse w
             | "particle" -> ParticleParser.analyse w
-            | _ -> InterjectionParser.analyse w)
+            | _ -> ParticleParser.analyse w)
 
     let private parseWiktionaryData (partsOfSpeech: string seq) : Word seq =
         partsOfSpeech |> Seq.map dataPath |> Seq.map Jsonl.parseWords |> Seq.concat
@@ -170,12 +170,13 @@ module API =
         | _ -> None
 
     let searchPronoun (query: string) (word: PronounInfo) : AnalysedWord option =
-        let matches =
+        match
             match word.Declensions with
             | GenderDeclined g -> g |> matchGenders
             | NonGenderDeclined c -> c |> matchCases
-
-        match matches |> List.append [ word.Lemma ] |> List.exists (contains query) with
+            |> List.append [ word.Lemma ]
+            |> List.exists (contains query)
+        with
         | true -> Some(Pronoun word)
         | _ -> None
 
@@ -219,12 +220,12 @@ module API =
         with
         | true -> Some(ProperNoun word)
         | _ -> None
-    
+
     let searchParticle (query: string) (word: ParticleInfo) : AnalysedWord option =
         match [ word.Lemma ] |> List.exists (contains query) with
         | true -> Some(Particle word)
         | _ -> None
-    
+
     let query (query: string) : AnalysedWord list =
         partsOfSpeech
         |> parseWiktionaryData
@@ -243,8 +244,7 @@ module API =
             | Interjection intj -> searchInterjection query intj
             | Numeral num -> searchNumeral query num
             | ProperNoun prop -> searchProperNoun query prop
-            | Particle part -> searchParticle query part
-            )
+            | Particle part -> searchParticle query part)
         |> Seq.toList
 
     let queryText (text: string) : Map<string, AnalysedWord list> =
