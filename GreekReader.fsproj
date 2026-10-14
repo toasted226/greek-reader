@@ -26,9 +26,11 @@
     <Compile Include="Parsing\Preposition.fs" />
     <Compile Include="Parsing\Conjunction.fs" />
     <Compile Include="Parsing\Interjection.fs" />
+    <Compile Include="Parsing\Particle.fs" />
     <Compile Include="Parsing\Numeral.fs" />
     <Compile Include="Parsing\ProperNoun.fs" />
     <Compile Include="Program.fs" />                <!-- -> everything                      -->
+    <Compile Include="Api.fs" />
     <Content Include="verb.json" />
     <None Include="scratch.fsx" />
   </ItemGroup>

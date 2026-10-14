@@ -166,6 +166,11 @@ type ProperNounInfo =
       Glosses: string list
       Declensions: CaseForms option }
 
+type ParticleInfo =
+    { Lemma: string
+      Glosses: string list
+      Examples: Example list }
+
 type AnalysedWord =
     | Noun of NounInfo
     | Determiner of DeterminerInfo
@@ -179,3 +184,4 @@ type AnalysedWord =
     | Interjection of InterjectionInfo
     | Numeral of NumeralInfo
     | ProperNoun of ProperNounInfo
+    | Particle of ParticleInfo

@@ -3,6 +3,8 @@
 open GreekReader.Model
 open GreekReader.Parsing
 open GreekReader.Wiktionary
+open System
+open System.IO
 
 module Program =
 
@@ -19,11 +21,11 @@ module Program =
          let candidates =
            [ "Resources/greek-nouns.jsonl"
              "greek-nouns.jsonl"
-             System.IO.Path.Combine(System.AppContext.BaseDirectory, "greek-nouns.jsonl")
-             System.IO.Path.Combine(System.AppContext.BaseDirectory, "Resources", "greek-nouns.jsonl")
-             System.IO.Path.Combine(System.AppContext.BaseDirectory, "..", "..", "..", "Resources", "greek-nouns.jsonl") ]
+             Path.Combine(AppContext.BaseDirectory, "greek-nouns.jsonl")
+             Path.Combine(AppContext.BaseDirectory, "Resources", "greek-nouns.jsonl")
+             Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "Resources", "greek-nouns.jsonl") ]
          candidates
-         |> List.tryFind System.IO.File.Exists
+         |> List.tryFind File.Exists
          |> Option.defaultWith (fun () ->
            failwith ("Cannot find greek-nouns.jsonl. Checked: " + String.concat ", " candidates))
        Jsonl.parseWords path |> NounParser.analyseWords |> Seq.toList)
