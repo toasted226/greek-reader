@@ -4,40 +4,40 @@ open GreekReader.Model
 
 module Service =
     
-    let contains (sub: string) (s: string) =
+    let private contains (sub: string) (s: string) =
         s.Equals(sub, System.StringComparison.OrdinalIgnoreCase)
 
-    let matchNumbers (numbers: NumberForms) : string list =
+    let private matchNumbers (numbers: NumberForms) : string list =
         [ numbers.Singular; numbers.Plural ] |> List.choose id
 
-    let matchCases (cases: CaseForms) : string list =
+    let private matchCases (cases: CaseForms) : string list =
         [ cases.Nominative; cases.Accusative; cases.Genitive; cases.Vocative ]
         |> List.collect matchNumbers
 
-    let matchGenders (genders: GenderForms) : string list =
+    let private matchGenders (genders: GenderForms) : string list =
         [ genders.Masculine; genders.Feminine; genders.Neuter ]
         |> List.collect matchCases
 
-    let matchDegrees (degrees: DegreeForms) : string list =
+    let private matchDegrees (degrees: DegreeForms) : string list =
         [ degrees.Positive; degrees.Comparative; degrees.Superlative ]
         |> List.collect matchGenders
 
-    let matchAdverbDegrees (degrees: AdverbDegrees) : string list =
+    let private matchAdverbDegrees (degrees: AdverbDegrees) : string list =
         [ degrees.Comparative; degrees.Superlative ] |> List.choose id
 
-    let matchNumeralCases (cases: NumeralCases) : string list =
+    let private matchNumeralCases (cases: NumeralCases) : string list =
         [ cases.Nominative; cases.Accusative; cases.Genitive; cases.Vocative ]
         |> List.choose id
 
-    let matchNumeralGenders (genders: NumeralGenders) : string list =
+    let private matchNumeralGenders (genders: NumeralGenders) : string list =
         [ genders.Masculine; genders.Feminine; genders.Neuter ]
         |> List.collect matchNumeralCases
 
-    let matchPersons (persons: PersonForms) : string list =
+    let private matchPersons (persons: PersonForms) : string list =
         [ persons.FirstPerson; persons.SecondPerson; persons.ThirdPerson ]
         |> List.collect matchNumbers
 
-    let matchTenses (tenses: TenseForms) : string list =
+    let private matchTenses (tenses: TenseForms) : string list =
         [ tenses.Present
           tenses.Imperfect
           tenses.Past
@@ -45,25 +45,25 @@ module Service =
           tenses.Dependent ]
         |> List.collect matchPersons
 
-    let matchAspects (aspects: AspectForms) : string list =
+    let private matchAspects (aspects: AspectForms) : string list =
         [ aspects.Imperfective; aspects.Perfective ] |> List.collect matchTenses
 
-    let matchVoices (voices: VoiceForms) : string list =
+    let private matchVoices (voices: VoiceForms) : string list =
         [ voices.Active; voices.Passive ] |> List.collect matchAspects
 
-    let matchMoods (moods: MoodForms) : string list =
+    let private matchMoods (moods: MoodForms) : string list =
         [ moods.Indicative; moods.Imperative ] |> List.collect matchVoices
 
-    let matchParticipleTenses (tenses: ParticipleTenseForms) : string list =
+    let private matchParticipleTenses (tenses: ParticipleTenseForms) : string list =
         [ tenses.Present; tenses.Past; tenses.Perfect ] |> List.choose id
 
-    let matchParticipleVoices (voices: ParticipleVoiceForms) : string list =
+    let private matchParticipleVoices (voices: ParticipleVoiceForms) : string list =
         [ voices.Active; voices.Passive ] |> List.collect matchParticipleTenses
 
-    let matchInfinitives (infinitives: InfinitiveForms) : string list =
+    let private matchInfinitives (infinitives: InfinitiveForms) : string list =
         [ infinitives.Active; infinitives.Passive ] |> List.choose id
 
-    let matchConjugations (conjugations: VerbForms) : string list =
+    let private matchConjugations (conjugations: VerbForms) : string list =
         matchMoods conjugations.Moods
         |> List.append (matchParticipleVoices conjugations.Participles.Voice)
         |> List.append (matchInfinitives conjugations.AoristInfinitives)
