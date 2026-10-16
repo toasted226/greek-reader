@@ -29,6 +29,7 @@
     <Compile Include="Parsing\Particle.fs" />
     <Compile Include="Parsing\Numeral.fs" />
     <Compile Include="Parsing\ProperNoun.fs" />
+    <Compile Include="Parsing\Text.fs" />
     <Compile Include="Service.fs" />                <!-- -> everything                      -->
     <Compile Include="Api.fs" />
     <Compile Include="Interop\Dto.fs" />

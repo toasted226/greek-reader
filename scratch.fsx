@@ -17,11 +17,12 @@
 #load "Parsing/Numeral.fs"
 #load "Parsing/ProperNoun.fs"
 #load "Parsing/Particle.fs"
+#load "Parsing/Text.fs"
 #load "Service.fs"
 #load "Api.fs"
 
 #time "on"
 open GreekReader.API
+open GreekReader.Parsing
 
-let results =
-    query "δεν"
+let tokens = Text.tokenise "Καλημέρα, σ'άγαπώ η φίλη μου. Είσαι 'πολύ' γλυκή."
