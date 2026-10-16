@@ -38,10 +38,12 @@ module DeterminerParser =
       Neuter = getCaseForms forms "neuter" }
 
   let analyse (w: Word) : AnalysedWord =
+    let senses = w.Senses |> Option.defaultValue []
     Determiner
       { Lemma = w.Word
-        Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
-        Declensions = w.Forms |> Option.defaultValue [] |> getGenderForms }
+        Glosses = senses |> Utils.getGlosses
+        Declensions = w.Forms |> Option.defaultValue [] |> getGenderForms
+        Examples = senses |> Utils.getExamples }
 
   let analyseWords (words: Word seq) : AnalysedWord seq =
     words |> Seq.map analyse

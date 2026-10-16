@@ -38,11 +38,13 @@ module NounParser =
     |> List.tryPick tryGender
 
   let analyse (w: Word) : AnalysedWord =
+    let senses = w.Senses |> Option.defaultValue []
     Noun
       { Lemma = w.Word
-        Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
+        Glosses = senses |> Utils.getGlosses
         Gender = w.Senses |> Option.bind getGender
-        Declensions = w.Forms |> Option.defaultValue [] |> getNounForms }
+        Declensions = w.Forms |> Option.defaultValue [] |> getNounForms
+        Examples = senses |> Utils.getExamples }
 
   let analyseWords (words: Word seq) : AnalysedWord seq =
     words |> Seq.map analyse

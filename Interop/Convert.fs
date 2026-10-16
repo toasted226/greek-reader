@@ -104,36 +104,37 @@ module Convert =
           Feminine = mapNumeralCases forms.Feminine
           Neuter = mapNumeralCases forms.Neuter }
 
-    let private setBase (lemma: string) (glosses: string list) (word: #AnalysedWord) =
+    let private setBase (lemma: string) (glosses: string list) (examples: GreekReader.Model.Example list) (word: #AnalysedWord) =
         word.Lemma <- lemma
         word.Glosses <- (List.toArray glosses :> IReadOnlyList<string>)
+        word.Examples <- mapExamples examples
         word
 
     let toInterop (word: GreekReader.Model.AnalysedWord) : AnalysedWord =
         match word with
         | GreekReader.Model.AnalysedWord.Noun n ->
-            let w = setBase n.Lemma n.Glosses (NounWord())
+            let w = setBase n.Lemma n.Glosses n.Examples (NounWord())
             w.Gender <- mapGenderOption n.Gender
             w.Declensions <- mapCaseForms n.Declensions
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Determiner d ->
-            let w = setBase d.Lemma d.Glosses (DeterminerWord())
+            let w = setBase d.Lemma d.Glosses d.Examples (DeterminerWord())
             w.Declensions <- mapGenderForms d.Declensions
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Verb v ->
-            let w = setBase v.Lemma v.Glosses (VerbWord())
+            let w = setBase v.Lemma v.Glosses v.Examples (VerbWord())
             w.Conjugations <- mapVerbForms v.Conjugations
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Adjective adj ->
-            let w = setBase adj.Lemma adj.Glosses (AdjectiveWord())
+            let w = setBase adj.Lemma adj.Glosses adj.Examples (AdjectiveWord())
             w.Degrees <- mapDegreeForms adj.Degrees
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Adverb adv ->
-            let w = setBase adv.Lemma adv.Glosses (AdverbWord())
+            let w = setBase adv.Lemma adv.Glosses adv.Examples (AdverbWord())
             w.Degrees <- mapAdverbDegrees adv.Degrees
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Article art ->
-            let w = setBase art.Lemma art.Glosses (ArticleWord())
+            let w = setBase art.Lemma art.Glosses art.Examples (ArticleWord())
             w.Kind <-
                 match art.Type with
                 | GreekReader.Model.ArticleType.Definite -> ArticleKind.Definite
@@ -141,38 +142,34 @@ module Convert =
             w.Inflections <- mapGenderForms art.Inflections
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Pronoun p ->
-            let w = setBase p.Lemma p.Glosses (PronounWord())
+            let w = setBase p.Lemma p.Glosses p.Examples (PronounWord())
             match p.Declensions with
             | GreekReader.Model.PronounDeclensions.GenderDeclined g -> w.GenderDeclensions <- mapGenderForms g
             | GreekReader.Model.PronounDeclensions.NonGenderDeclined c -> w.CaseDeclensions <- mapCaseForms c
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Preposition p ->
-            let w = setBase p.Lemma p.Glosses (PrepositionWord())
-            w.Examples <- mapExamples p.Examples
+            let w = setBase p.Lemma p.Glosses p.Examples (PrepositionWord())
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Conjunction c ->
-            let w = setBase c.Lemma c.Glosses (ConjunctionWord())
-            w.Examples <- mapExamples c.Examples
+            let w = setBase c.Lemma c.Glosses c.Examples (ConjunctionWord())
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Interjection i ->
-            let w = setBase i.Lemma i.Glosses (InterjectionWord())
-            w.Examples <- mapExamples i.Examples
+            let w = setBase i.Lemma i.Glosses i.Examples (InterjectionWord())
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Numeral n ->
-            let w = setBase n.Lemma n.Glosses (NumeralWord())
+            let w = setBase n.Lemma n.Glosses n.Examples (NumeralWord())
             w.Declensions <-
                 match n.Declensions with
                 | Some forms -> mapNumeralGenders forms
                 | None -> null
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.ProperNoun p ->
-            let w = setBase p.Lemma p.Glosses (ProperNounWord())
+            let w = setBase p.Lemma p.Glosses p.Examples (ProperNounWord())
             w.Declensions <-
                 match p.Declensions with
                 | Some forms -> mapCaseForms forms
                 | None -> null
             w :> AnalysedWord
         | GreekReader.Model.AnalysedWord.Particle p ->
-            let w = setBase p.Lemma p.Glosses (ParticleWord())
-            w.Examples <- mapExamples p.Examples
+            let w = setBase p.Lemma p.Glosses p.Examples (ParticleWord())
             w :> AnalysedWord

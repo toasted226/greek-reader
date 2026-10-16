@@ -143,6 +143,7 @@ type NumeralGenders =
 type AnalysedWord() =
     member val Lemma: string | null = null with get, set
     member val Glosses: IReadOnlyList<string> = null with get, set
+    member val Examples: IReadOnlyList<Example> = null with get, set
     abstract PartOfSpeech: PartOfSpeech with get
 
 type NounWord() =
@@ -186,17 +187,14 @@ type PronounWord() =
 type PrepositionWord() =
     inherit AnalysedWord()
     override _.PartOfSpeech = PartOfSpeech.Preposition
-    member val Examples: IReadOnlyList<Example> = null with get, set
 
 type ConjunctionWord() =
     inherit AnalysedWord()
     override _.PartOfSpeech = PartOfSpeech.Conjunction
-    member val Examples: IReadOnlyList<Example> = null with get, set
 
 type InterjectionWord() =
     inherit AnalysedWord()
     override _.PartOfSpeech = PartOfSpeech.Interjection
-    member val Examples: IReadOnlyList<Example> = null with get, set
 
 type NumeralWord() =
     inherit AnalysedWord()
@@ -211,4 +209,3 @@ type ProperNounWord() =
 type ParticleWord() =
     inherit AnalysedWord()
     override _.PartOfSpeech = PartOfSpeech.Particle
-    member val Examples: IReadOnlyList<Example> = null with get, set

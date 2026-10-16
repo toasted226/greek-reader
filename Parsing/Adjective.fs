@@ -81,10 +81,12 @@ module AdjectiveParser =
           Superlative = Utils.getGender split.Superlative }
 
     let analyse (w: Word) : AnalysedWord =
+        let senses = w.Senses |> Option.defaultValue []
         Adjective
             { Lemma = w.Word
-              Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
-              Degrees = w.Forms |> Option.defaultValue [] |> getDegrees }
+              Glosses = senses |> Utils.getGlosses
+              Degrees = w.Forms |> Option.defaultValue [] |> getDegrees
+              Examples = senses |> Utils.getExamples }
 
     let analyseWords (words: Word seq) : AnalysedWord seq = words |> Seq.map analyse
 

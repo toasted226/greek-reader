@@ -48,6 +48,16 @@ public class JsonSerializationTests
     }
 
     [Fact]
+    public void Examples_are_serialized_for_every_part_of_speech()
+    {
+        var json = I.Json.serialize(I.Convert.toInterop(Fixtures.Noun()));
+
+        Assert.Contains("\"examples\"", json);
+        Assert.Contains("\"greek\":\"ὁ λόγος\"", json);
+        Assert.Contains("\"english\":\"the word\"", json);
+    }
+
+    [Fact]
     public void Round_trips_through_System_Text_Json_without_polymorphic_metadata()
     {
         var json = I.Json.serialize(I.Convert.toInterop(Fixtures.Noun()));

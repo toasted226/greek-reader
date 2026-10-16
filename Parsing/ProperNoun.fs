@@ -7,6 +7,7 @@ module ProperNounParser =
 
     let analyse (w: Word) : AnalysedWord =
         let forms = w.Forms |> Option.defaultValue []
+        let senses = w.Senses |> Option.defaultValue []
         let hasCases =
             forms
             |> Utils.formsHaveTags [ "nominative"; "accusative"; "genitive"; "vocative" ]
@@ -17,7 +18,8 @@ module ProperNounParser =
               Declensions =
                 match hasCases with
                 | true -> forms |> Utils.getCases |> Some
-                | false -> None }
+                | false -> None
+              Examples = senses |> Utils.getExamples }
 
     let analyseWords (words: Word seq) : AnalysedWord seq = words |> Seq.map analyse
 

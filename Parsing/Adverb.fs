@@ -10,10 +10,12 @@ module AdverbParser =
           Superlative = forms |> Utils.withTag "superlative" |> Utils.getForm }
     
     let analyse (w: Word) : AnalysedWord =
+        let senses = w.Senses |> Option.defaultValue []
         Adverb
             { Lemma = w.Word
-              Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
-              Degrees = w.Forms |> Option.defaultValue [] |> getAdverbDegrees }
+              Glosses = senses |> Utils.getGlosses
+              Degrees = w.Forms |> Option.defaultValue [] |> getAdverbDegrees
+              Examples = senses |> Utils.getExamples }
 
     let analyseWords (words: Word seq) : AnalysedWord seq = words |> Seq.map analyse
 

@@ -93,33 +93,39 @@ type NounInfo =
     { Lemma: string
       Glosses: string list
       Gender: Gender option
-      Declensions: CaseForms }
+      Declensions: CaseForms
+      Examples: Example list }
 
 type DeterminerInfo =
     { Lemma: string
       Glosses: string list
-      Declensions: GenderForms }
+      Declensions: GenderForms
+      Examples: Example list }
 
 type VerbInfo =
     { Lemma: string
       Glosses: string list
-      Conjugations: VerbForms }
+      Conjugations: VerbForms
+      Examples: Example list }
 
 type AdjectiveInfo =
     { Lemma: string
       Glosses: string list
-      Degrees: DegreeForms }
+      Degrees: DegreeForms
+      Examples: Example list }
 
 type AdverbInfo =
     { Lemma: string
       Glosses: string list
-      Degrees: AdverbDegrees }
+      Degrees: AdverbDegrees
+      Examples: Example list }
 
 type ArticleInfo =
     { Lemma: string
       Glosses: string list
       Type: ArticleType
-      Inflections: GenderForms }
+      Inflections: GenderForms
+      Examples: Example list }
 
 type PronounDeclensions =
     | GenderDeclined of GenderForms
@@ -128,7 +134,8 @@ type PronounDeclensions =
 type PronounInfo =
     { Lemma: string
       Glosses: string list
-      Declensions: PronounDeclensions }
+      Declensions: PronounDeclensions
+      Examples: Example list }
 
 type PrepositionInfo =
     { Lemma: string
@@ -139,7 +146,7 @@ type ConjunctionInfo =
     { Lemma: string
       Glosses: string list
       Examples: Example list }
-    
+
 type InterjectionInfo =
     { Lemma: string
       Glosses: string list
@@ -159,12 +166,14 @@ type NumeralGenders =
 type NumeralInfo =
     { Lemma: string
       Glosses: string list
-      Declensions: NumeralGenders option }
+      Declensions: NumeralGenders option
+      Examples: Example list }
 
 type ProperNounInfo =
     { Lemma: string
       Glosses: string list
-      Declensions: CaseForms option }
+      Declensions: CaseForms option
+      Examples: Example list }
 
 type ParticleInfo =
     { Lemma: string

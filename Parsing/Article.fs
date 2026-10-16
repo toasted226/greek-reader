@@ -31,15 +31,17 @@ module ArticleParser =
     
     let analyse (w: Word) : AnalysedWord =
         let forms = w.Forms |> Option.defaultValue []
+        let senses = w.Senses |> Option.defaultValue []
         
         Article
             { Lemma = w.Word
-              Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
+              Glosses = senses |> Utils.getGlosses
               Type =
                   match forms |> Utils.formsHaveTags ["definite"] with
                   | true -> Definite
                   | false -> Indefinite
-              Inflections = forms |> getGender }
+              Inflections = forms |> getGender
+              Examples = senses |> Utils.getExamples }
 
     let analyseWords (words: Word seq) : AnalysedWord seq = words |> Seq.map analyse
 

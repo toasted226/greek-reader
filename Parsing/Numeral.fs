@@ -18,6 +18,7 @@ module NumeralParser =
 
     let analyse (w: Word) : AnalysedWord =
         let forms = w.Forms |> Option.defaultValue []
+        let senses = w.Senses |> Option.defaultValue []
 
         Numeral
             { Lemma = w.Word
@@ -25,7 +26,8 @@ module NumeralParser =
               Declensions =
                 match forms |> Utils.formsHaveTags [ "masculine"; "feminine"; "neuter" ] with
                 | true -> forms |> getNumeralGenders |> Some
-                | false -> None }
+                | false -> None
+              Examples = senses |> Utils.getExamples }
 
     let analyseWords (words: Word seq) : AnalysedWord seq = words |> Seq.map analyse
 

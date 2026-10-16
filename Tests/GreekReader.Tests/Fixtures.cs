@@ -53,6 +53,8 @@ internal static class Fixtures
 
     public static M.Example Ex(string greek, string english) => new(greek, english);
 
+    public static FSharpList<M.Example> NoExamples() => FList<M.Example>();
+
     public static M.ParticipleTenseForms PPartTenses(string? present, string? past, string? perfect)
         => new(Opt(present), Opt(past), Opt(perfect));
 
@@ -79,7 +81,7 @@ internal static class Fixtures
         NF("λόγε", "λόγοι"));
 
     public static M.AnalysedWord Noun() =>
-        M.AnalysedWord.NewNoun(new M.NounInfo("λόγος", List("word", "reason"), Opt(M.Gender.Masculine), LogosCases()));
+        M.AnalysedWord.NewNoun(new M.NounInfo("λόγος", List("word", "reason"), Opt(M.Gender.Masculine), LogosCases(), FList(Ex("ὁ λόγος", "the word"))));
 
     public static M.AnalysedWord Particle() =>
         M.AnalysedWord.NewParticle(new M.ParticleInfo("δέ", List("but"), FList(Ex("α", "a"))));

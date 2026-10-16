@@ -57,10 +57,12 @@ module VerbParser =
           AoristInfinitives = forms |> Utils.withTag "infinitive-aorist" |> getAoristInfinitives }
 
     let analyse (w: Word) : AnalysedWord =
+        let senses = w.Senses |> Option.defaultValue []
         Verb
             { Lemma = w.Word
-              Glosses = w.Senses |> Option.defaultValue [] |> Utils.getGlosses
-              Conjugations = getVerbForms (w.Forms |> Option.defaultValue []) }
+              Glosses = senses |> Utils.getGlosses
+              Conjugations = w.Forms |> Option.defaultValue [] |> getVerbForms
+              Examples = senses |> Utils.getExamples }
 
     let analyseWords (words: Word seq) : AnalysedWord seq = words |> Seq.map analyse
 
