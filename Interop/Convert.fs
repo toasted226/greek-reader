@@ -1,175 +1,223 @@
 namespace GreekReader.Interop
 
-open System
-open System.Collections.Generic
-
-
 module Convert =
 
-    let private mapGender (gender: GreekReader.Model.Gender) : Gender =
+    open GreekReader.Model
+
+    let private form (features: string list) (value: string option) : FormEntry list =
+        match value with
+        | Some v when not (System.String.IsNullOrWhiteSpace v) ->
+            [ { Form = v; Features = List.toArray features } ]
+        | _ -> []
+
+    let private numberForms (features: string list) (nf: NumberForms) : FormEntry list =
+        [ yield! form (features @ [ "singular" ]) nf.Singular
+          yield! form (features @ [ "plural" ]) nf.Plural ]
+
+    let private caseForms (features: string list) (cf: CaseForms) : FormEntry list =
+        [ yield! numberForms (features @ [ "nominative" ]) cf.Nominative
+          yield! numberForms (features @ [ "accusative" ]) cf.Accusative
+          yield! numberForms (features @ [ "genitive" ]) cf.Genitive
+          yield! numberForms (features @ [ "vocative" ]) cf.Vocative ]
+
+    let private genderForms (features: string list) (gf: GenderForms) : FormEntry list =
+        [ yield! caseForms (features @ [ "masculine" ]) gf.Masculine
+          yield! caseForms (features @ [ "feminine" ]) gf.Feminine
+          yield! caseForms (features @ [ "neuter" ]) gf.Neuter ]
+
+    let private degreeForms (df: DegreeForms) : FormEntry list =
+        [ yield! genderForms [ "positive" ] df.Positive
+          yield! genderForms [ "comparative" ] df.Comparative
+          yield! genderForms [ "superlative" ] df.Superlative ]
+
+    let private genderFeatures (gender: Gender option) : string list =
         match gender with
-        | GreekReader.Model.Gender.Masculine -> Gender.Masculine
-        | GreekReader.Model.Gender.Feminine -> Gender.Feminine
-        | GreekReader.Model.Gender.Neuter -> Gender.Neuter
+        | Some Masculine -> [ "masculine" ]
+        | Some Feminine -> [ "feminine" ]
+        | Some Neuter -> [ "neuter" ]
+        | None -> []
 
-    let private mapGenderOption (gender: GreekReader.Model.Gender option) : Nullable<Gender> =
-        match gender with
-        | Some value -> Nullable<Gender>(mapGender value)
-        | None -> Nullable<Gender>()
+    let private examples (xs: Example list) : GreekReader.Interop.Example[] =
+        xs
+        |> List.map (fun e -> ({ Greek = e.Greek; English = e.English } : GreekReader.Interop.Example))
+        |> List.toArray
 
-    let private mapExample (example: GreekReader.Model.Example) : Example =
-        { Greek = example.Greek
-          English = example.English }
+    let private noun (n: NounInfo) : LemmaEntry =
+        { Lemma = n.Lemma
+          Pos = PartOfSpeech.Noun
+          Glosses = List.toArray n.Glosses
+          Examples = examples n.Examples
+          Forms = caseForms (genderFeatures n.Gender) n.Declensions |> List.toArray }
 
-    let private mapExamples (examples: GreekReader.Model.Example list) : IReadOnlyList<Example> =
-        examples |> List.map mapExample |> List.toArray :> IReadOnlyList<Example>
+    let private article (a: ArticleInfo) : LemmaEntry =
+        let kind =
+            match a.Type with
+            | Definite -> "definite"
+            | Indefinite -> "indefinite"
 
-    let private mapNumberForms (forms: GreekReader.Model.NumberForms) : NumberForms =
-        { Singular = Option.toObj forms.Singular
-          Plural = Option.toObj forms.Plural }
+        { Lemma = a.Lemma
+          Pos = PartOfSpeech.Article
+          Glosses = List.toArray a.Glosses
+          Examples = examples a.Examples
+          Forms = genderForms [ kind ] a.Inflections |> List.toArray }
 
-    let private mapCaseForms (forms: GreekReader.Model.CaseForms) : CaseForms =
-        { Nominative = mapNumberForms forms.Nominative
-          Accusative = mapNumberForms forms.Accusative
-          Genitive = mapNumberForms forms.Genitive
-          Vocative = mapNumberForms forms.Vocative }
+    let private adjective (a: AdjectiveInfo) : LemmaEntry =
+        { Lemma = a.Lemma
+          Pos = PartOfSpeech.Adjective
+          Glosses = List.toArray a.Glosses
+          Examples = examples a.Examples
+          Forms = degreeForms a.Degrees |> List.toArray }
 
-    let private mapGenderForms (forms: GreekReader.Model.GenderForms) : GenderForms =
-        { Masculine = mapCaseForms forms.Masculine
-          Feminine = mapCaseForms forms.Feminine
-          Neuter = mapCaseForms forms.Neuter }
+    let private determiner (d: DeterminerInfo) : LemmaEntry =
+        { Lemma = d.Lemma
+          Pos = PartOfSpeech.Determiner
+          Glosses = List.toArray d.Glosses
+          Examples = examples d.Examples
+          Forms = genderForms [] d.Declensions |> List.toArray }
 
-    let private mapPersonForms (forms: GreekReader.Model.PersonForms) : PersonForms =
-        { FirstPerson = mapNumberForms forms.FirstPerson
-          SecondPerson = mapNumberForms forms.SecondPerson
-          ThirdPerson = mapNumberForms forms.ThirdPerson }
-
-    let private mapTenseForms (forms: GreekReader.Model.TenseForms) : TenseForms =
-        { Present = mapPersonForms forms.Present
-          Imperfect = mapPersonForms forms.Imperfect
-          Past = mapPersonForms forms.Past
-          Future = mapPersonForms forms.Future
-          Dependent = mapPersonForms forms.Dependent }
-
-    let private mapAspectForms (forms: GreekReader.Model.AspectForms) : AspectForms =
-        { Imperfective = mapTenseForms forms.Imperfective
-          Perfective = mapTenseForms forms.Perfective }
-
-    let private mapVoiceForms (forms: GreekReader.Model.VoiceForms) : VoiceForms =
-        { Active = mapAspectForms forms.Active
-          Passive = mapAspectForms forms.Passive }
-
-    let private mapMoodForms (forms: GreekReader.Model.MoodForms) : MoodForms =
-        { Indicative = mapVoiceForms forms.Indicative
-          Imperative = mapVoiceForms forms.Imperative }
-
-    let private mapParticipleTenseForms (forms: GreekReader.Model.ParticipleTenseForms) : ParticipleTenseForms =
-        { Present = Option.toObj forms.Present
-          Past = Option.toObj forms.Past
-          Perfect = Option.toObj forms.Perfect }
-
-    let private mapParticipleVoiceForms (forms: GreekReader.Model.ParticipleVoiceForms) : ParticipleVoiceForms =
-        { Active = mapParticipleTenseForms forms.Active
-          Passive = mapParticipleTenseForms forms.Passive }
-
-    let private mapParticipleForms (forms: GreekReader.Model.ParticipleForms) : ParticipleForms =
-        { Voice = mapParticipleVoiceForms forms.Voice }
-
-    let private mapInfinitiveForms (forms: GreekReader.Model.InfinitiveForms) : InfinitiveForms =
-        { Active = Option.toObj forms.Active
-          Passive = Option.toObj forms.Passive }
-
-    let private mapDegreeForms (forms: GreekReader.Model.DegreeForms) : DegreeForms =
-        { Positive = mapGenderForms forms.Positive
-          Comparative = mapGenderForms forms.Comparative
-          Superlative = mapGenderForms forms.Superlative }
-
-    let private mapVerbForms (forms: GreekReader.Model.VerbForms) : VerbForms =
-        { Moods = mapMoodForms forms.Moods
-          Participles = mapParticipleForms forms.Participles
-          AoristInfinitives = mapInfinitiveForms forms.AoristInfinitives }
-
-    let private mapAdverbDegrees (forms: GreekReader.Model.AdverbDegrees) : AdverbDegrees =
-        { Comparative = Option.toObj forms.Comparative
-          Superlative = Option.toObj forms.Superlative }
-
-    let private mapNumeralCases (forms: GreekReader.Model.NumeralCases) : NumeralCases =
-        { Nominative = Option.toObj forms.Nominative
-          Accusative = Option.toObj forms.Accusative
-          Genitive = Option.toObj forms.Genitive
-          Vocative = Option.toObj forms.Vocative }
-
-    let private mapNumeralGenders (forms: GreekReader.Model.NumeralGenders) : NumeralGenders =
-        { Masculine = mapNumeralCases forms.Masculine
-          Feminine = mapNumeralCases forms.Feminine
-          Neuter = mapNumeralCases forms.Neuter }
-
-    let private setBase (lemma: string) (glosses: string list) (examples: GreekReader.Model.Example list) (word: #AnalysedWord) =
-        word.Lemma <- lemma
-        word.Glosses <- (List.toArray glosses :> IReadOnlyList<string>)
-        word.Examples <- mapExamples examples
-        word
-
-    let toInterop (word: GreekReader.Model.AnalysedWord) : AnalysedWord =
-        match word with
-        | GreekReader.Model.AnalysedWord.Noun n ->
-            let w = setBase n.Lemma n.Glosses n.Examples (NounWord())
-            w.Gender <- mapGenderOption n.Gender
-            w.Declensions <- mapCaseForms n.Declensions
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Determiner d ->
-            let w = setBase d.Lemma d.Glosses d.Examples (DeterminerWord())
-            w.Declensions <- mapGenderForms d.Declensions
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Verb v ->
-            let w = setBase v.Lemma v.Glosses v.Examples (VerbWord())
-            w.Conjugations <- mapVerbForms v.Conjugations
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Adjective adj ->
-            let w = setBase adj.Lemma adj.Glosses adj.Examples (AdjectiveWord())
-            w.Degrees <- mapDegreeForms adj.Degrees
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Adverb adv ->
-            let w = setBase adv.Lemma adv.Glosses adv.Examples (AdverbWord())
-            w.Degrees <- mapAdverbDegrees adv.Degrees
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Article art ->
-            let w = setBase art.Lemma art.Glosses art.Examples (ArticleWord())
-            w.Kind <-
-                match art.Type with
-                | GreekReader.Model.ArticleType.Definite -> ArticleKind.Definite
-                | GreekReader.Model.ArticleType.Indefinite -> ArticleKind.Indefinite
-            w.Inflections <- mapGenderForms art.Inflections
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Pronoun p ->
-            let w = setBase p.Lemma p.Glosses p.Examples (PronounWord())
+    let private pronoun (p: PronounInfo) : LemmaEntry =
+        let forms =
             match p.Declensions with
-            | GreekReader.Model.PronounDeclensions.GenderDeclined g -> w.GenderDeclensions <- mapGenderForms g
-            | GreekReader.Model.PronounDeclensions.NonGenderDeclined c -> w.CaseDeclensions <- mapCaseForms c
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Preposition p ->
-            let w = setBase p.Lemma p.Glosses p.Examples (PrepositionWord())
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Conjunction c ->
-            let w = setBase c.Lemma c.Glosses c.Examples (ConjunctionWord())
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Interjection i ->
-            let w = setBase i.Lemma i.Glosses i.Examples (InterjectionWord())
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Numeral n ->
-            let w = setBase n.Lemma n.Glosses n.Examples (NumeralWord())
-            w.Declensions <-
-                match n.Declensions with
-                | Some forms -> mapNumeralGenders forms
-                | None -> null
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.ProperNoun p ->
-            let w = setBase p.Lemma p.Glosses p.Examples (ProperNounWord())
-            w.Declensions <-
-                match p.Declensions with
-                | Some forms -> mapCaseForms forms
-                | None -> null
-            w :> AnalysedWord
-        | GreekReader.Model.AnalysedWord.Particle p ->
-            let w = setBase p.Lemma p.Glosses p.Examples (ParticleWord())
-            w :> AnalysedWord
+            | GenderDeclined gf -> genderForms [] gf
+            | NonGenderDeclined cf -> caseForms [] cf
+
+        { Lemma = p.Lemma
+          Pos = PartOfSpeech.Pronoun
+          Glosses = List.toArray p.Glosses
+          Examples = examples p.Examples
+          Forms = forms |> List.toArray }
+
+    let private preposition (p: PrepositionInfo) : LemmaEntry =
+        { Lemma = p.Lemma
+          Pos = PartOfSpeech.Preposition
+          Glosses = List.toArray p.Glosses
+          Examples = examples p.Examples
+          Forms = [||] }
+
+    let private conjunction (c: ConjunctionInfo) : LemmaEntry =
+        { Lemma = c.Lemma
+          Pos = PartOfSpeech.Conjunction
+          Glosses = List.toArray c.Glosses
+          Examples = examples c.Examples
+          Forms = [||] }
+
+    let private adverbDegrees (d: AdverbDegrees) : FormEntry list =
+        [ yield! form [ "comparative" ] d.Comparative
+          yield! form [ "superlative" ] d.Superlative ]
+
+    let private adverb (a: AdverbInfo) : LemmaEntry =
+        { Lemma = a.Lemma
+          Pos = PartOfSpeech.Adverb
+          Glosses = List.toArray a.Glosses
+          Examples = examples a.Examples
+          Forms = adverbDegrees a.Degrees |> List.toArray }
+
+    let private interjection (i: InterjectionInfo) : LemmaEntry =
+        { Lemma = i.Lemma
+          Pos = PartOfSpeech.Interjection
+          Glosses = List.toArray i.Glosses
+          Examples = examples i.Examples
+          Forms = [||] }
+
+    let private numeralCases (features: string list) (nc: NumeralCases) : FormEntry list =
+        [ yield! form (features @ [ "nominative" ]) nc.Nominative
+          yield! form (features @ [ "accusative" ]) nc.Accusative
+          yield! form (features @ [ "genitive" ]) nc.Genitive
+          yield! form (features @ [ "vocative" ]) nc.Vocative ]
+
+    let private numeralGenders (ng: NumeralGenders) : FormEntry list =
+        [ yield! numeralCases [ "masculine" ] ng.Masculine
+          yield! numeralCases [ "feminine" ] ng.Feminine
+          yield! numeralCases [ "neuter" ] ng.Neuter ]
+
+    let private numeral (n: NumeralInfo) : LemmaEntry =
+        let forms =
+            n.Declensions |> Option.map numeralGenders |> Option.defaultValue []
+
+        { Lemma = n.Lemma
+          Pos = PartOfSpeech.Numeral
+          Glosses = List.toArray n.Glosses
+          Examples = examples n.Examples
+          Forms = forms |> List.toArray }
+
+    let private properNoun (p: ProperNounInfo) : LemmaEntry =
+        let forms =
+            p.Declensions |> Option.map (caseForms []) |> Option.defaultValue []
+
+        { Lemma = p.Lemma
+          Pos = PartOfSpeech.ProperNoun
+          Glosses = List.toArray p.Glosses
+          Examples = examples p.Examples
+          Forms = forms |> List.toArray }
+
+    let private particle (p: ParticleInfo) : LemmaEntry =
+        { Lemma = p.Lemma
+          Pos = PartOfSpeech.Particle
+          Glosses = List.toArray p.Glosses
+          Examples = examples p.Examples
+          Forms = [||] }
+
+    let private personForms (features: string list) (pf: PersonForms) : FormEntry list =
+        [ yield! numberForms (features @ [ "first-person" ]) pf.FirstPerson
+          yield! numberForms (features @ [ "second-person" ]) pf.SecondPerson
+          yield! numberForms (features @ [ "third-person" ]) pf.ThirdPerson ]
+
+    let private tenseForms (features: string list) (tf: TenseForms) : FormEntry list =
+        [ yield! personForms (features @ [ "present" ]) tf.Present
+          yield! personForms (features @ [ "imperfect" ]) tf.Imperfect
+          yield! personForms (features @ [ "past" ]) tf.Past
+          yield! personForms (features @ [ "future" ]) tf.Future
+          yield! personForms (features @ [ "dependent" ]) tf.Dependent ]
+
+    let private aspectForms (features: string list) (af: AspectForms) : FormEntry list =
+        [ yield! tenseForms (features @ [ "imperfective" ]) af.Imperfective
+          yield! tenseForms (features @ [ "perfective" ]) af.Perfective ]
+
+    let private voiceForms (features: string list) (vf: VoiceForms) : FormEntry list =
+        [ yield! aspectForms (features @ [ "active" ]) vf.Active
+          yield! aspectForms (features @ [ "passive" ]) vf.Passive ]
+
+    let private moodForms (mf: MoodForms) : FormEntry list =
+        [ yield! voiceForms [ "indicative" ] mf.Indicative
+          yield! voiceForms [ "imperative" ] mf.Imperative ]
+
+    let private participleTenseForms (voice: string) (pt: ParticipleTenseForms) : FormEntry list =
+        [ yield! form [ "participle"; voice; "present" ] pt.Present
+          yield! form [ "participle"; voice; "past" ] pt.Past
+          yield! form [ "participle"; voice; "perfect" ] pt.Perfect ]
+
+    let private participleForms (pf: ParticipleForms) : FormEntry list =
+        [ yield! participleTenseForms "active" pf.Voice.Active
+          yield! participleTenseForms "passive" pf.Voice.Passive ]
+
+    let private infinitiveForms (inf: InfinitiveForms) : FormEntry list =
+        [ yield! form [ "infinitive"; "active"; "aorist" ] inf.Active
+          yield! form [ "infinitive"; "passive"; "aorist" ] inf.Passive ]
+
+    let private verb (v: VerbInfo) : LemmaEntry =
+        let forms =
+            [ yield! moodForms v.Conjugations.Moods
+              yield! participleForms v.Conjugations.Participles
+              yield! infinitiveForms v.Conjugations.AoristInfinitives ]
+
+        { Lemma = v.Lemma
+          Pos = PartOfSpeech.Verb
+          Glosses = List.toArray v.Glosses
+          Examples = examples v.Examples
+          Forms = forms |> List.toArray }
+
+    let toInterop (word: AnalysedWord) : LemmaEntry =
+        match word with
+        | Noun n -> noun n
+        | Article a -> article a
+        | Adjective a -> adjective a
+        | Determiner d -> determiner d
+        | Pronoun p -> pronoun p
+        | Preposition p -> preposition p
+        | Conjunction c -> conjunction c
+        | Adverb a -> adverb a
+        | Interjection i -> interjection i
+        | Numeral n -> numeral n
+        | ProperNoun p -> properNoun p
+        | Particle p -> particle p
+        | Verb v -> verb v
