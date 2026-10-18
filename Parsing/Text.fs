@@ -19,9 +19,9 @@ module Text =
                 match Char.ToLowerInvariant(c) with
                 | 'ς' -> sb.Append('σ') |> ignore
                 | lc -> sb.Append(lc) |> ignore
-                
+
         sb.ToString().Normalize(NormalizationForm.FormC)
- 
+
     let isApostrophe (c: char) =
         c = '\'' || c = '’' || c = 'ʼ' || c = '᾽'
 
@@ -63,7 +63,9 @@ module Text =
 
         go (List.ofSeq text) 0 0 [] false []
 
-    let private superscripts = [| '¹'; '²'; '³'; '⁴'; '⁵'; '*' |]
+    let private superscripts =
+        [| '⁰'; '¹'; '²'; '³'; '⁴'; '⁵'; '⁶'; '⁷'; '⁸'; '⁹'; 'ⁱ'; '*' |]
+
     let private wrappers = [| '['; ']'; '{'; '}'; '('; ')' |]
 
     let private clean (s: string) =
@@ -71,4 +73,3 @@ module Text =
 
     let private isWord (s: string) =
         s <> "" && s |> Seq.forall (fun c -> Char.IsLetter c || c = '\'' || c = '’')
-        
