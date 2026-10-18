@@ -1,14 +1,21 @@
 namespace GreekReader
 
+open System
+open System.IO
 open GreekReader.Model
 open GreekReader.Parsing
 open GreekReader.Wiktionary
 
 module API =
 
-    let private dataPath (partOfSpeech: string) : string = $"Resources/greek-{partOfSpeech}.jsonl"
+    let private dataPath (partOfSpeech: string) : string =
+        let filename = $"greek-{partOfSpeech}.jsonl"
+        let candidates =
+            [ Path.Combine(AppContext.BaseDirectory, "Resources", filename)
+              Path.Combine("Resources", filename) ]
+        candidates |> List.tryFind File.Exists |> Option.defaultValue candidates.Head
 
-    let private partsOfSpeech =
+    let internal partsOfSpeech =
         [ "verbs"
           "adjectives"
           "articles"
@@ -23,7 +30,7 @@ module API =
           "proper-nouns"
           "particles" ]
 
-    let private analyseWiktionaryData (words: Word seq) : AnalysedWord seq =
+    let internal analyseWiktionaryData (words: Word seq) : AnalysedWord seq =
         words
         |> Seq.map (fun w ->
             match w.Pos with
@@ -42,7 +49,7 @@ module API =
             | "particle" -> ParticleParser.analyse w
             | _ -> ParticleParser.analyse w)
 
-    let private parseWiktionaryData (partsOfSpeech: string seq) : Word seq =
+    let internal parseWiktionaryData (partsOfSpeech: string seq) : Word seq =
         partsOfSpeech
         |> Seq.map dataPath
         |> Seq.map Jsonl.parseWords

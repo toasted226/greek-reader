@@ -19,9 +19,9 @@ module Text =
                 match Char.ToLowerInvariant(c) with
                 | 'ς' -> sb.Append('σ') |> ignore
                 | lc -> sb.Append(lc) |> ignore
-
-        sb.ToString()
-
+                
+        sb.ToString().Normalize(NormalizationForm.FormC)
+ 
     let private isApostrophe (c: char) =
         c = '\'' || c = '’' || c = 'ʼ' || c = '᾽'
 
@@ -62,3 +62,18 @@ module Text =
                     go rest (i + 1) i [ c ] w (flush buf start isWord acc)
 
         go (List.ofSeq text) 0 0 [] false []
+
+    let private superscripts = [| '¹'; '²'; '³'; '⁴'; '⁵'; '*' |]
+    let private wrappers = [| '['; ']'; '{'; '}'; '('; ')' |]
+
+    let private clean (s: string) =
+        s.Trim().Trim(wrappers).TrimEnd(superscripts).Trim(wrappers).Trim()
+
+    let private isWord (s: string) =
+        s <> "" && s |> Seq.forall (fun c -> Char.IsLetter c || c = '\'' || c = '’')
+
+    let parseCell (cell: string) : string[] =
+        cell.Split([| " - "; ","; ";"; " / " |], StringSplitOptions.RemoveEmptyEntries)
+        |> Array.map clean
+        |> Array.filter isWord
+        |> Array.distinct

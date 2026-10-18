@@ -40,11 +40,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\article.json" />
+    <Content Include="Resources\*.jsonl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FSharp.Collections.ParallelSeq" Version="1.2.0" />
+    <PackageReference Update="FSharp.Core" Version="11.0.101-rc2.26504.105" />
   </ItemGroup>
 
 </Project>
