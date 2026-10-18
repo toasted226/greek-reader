@@ -15,3 +15,8 @@ module Api =
     [<CompiledName("Normalise")>]
     let normalise (s: string) : string =
         GreekReader.Parsing.Text.normalise s
+
+    [<CompiledName("Tokenise")>]
+    let tokenise (s: string) =
+        GreekReader.Parsing.Text.tokenise s
+        |> List.toArray

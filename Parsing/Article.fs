@@ -14,9 +14,9 @@ module ArticleParser =
     let getNumbers (forms: Form list) : NumberForms =
         { Singular =
             match forms |> Utils.formsHaveTags ["definite"] with
-            | true -> forms |> Utils.withTag "singular" |> getForm
-            | false -> forms |> getForm
-          Plural = forms |> Utils.withTag "plural" |> getForm }
+            | true -> forms |> Utils.withTag "singular" |> Utils.getVariants
+            | false -> forms |> Utils.getVariants
+          Plural = forms |> Utils.withTag "plural" |> Utils.getVariants }
     
     let getCases (forms: Form list) : CaseForms =
         { Nominative = forms |> Utils.withTag "nominative" |> getNumbers

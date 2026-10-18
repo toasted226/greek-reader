@@ -6,8 +6,8 @@ open GreekReader.Wiktionary
 module AdverbParser =
     
     let getAdverbDegrees (forms: Form list) : AdverbDegrees =
-        { Comparative = forms |> Utils.withTag "comparative" |> Utils.getForm
-          Superlative = forms |> Utils.withTag "superlative" |> Utils.getForm }
+        { Comparative = forms |> Utils.withTag "comparative" |> Utils.getVariants
+          Superlative = forms |> Utils.withTag "superlative" |> Utils.getVariants }
     
     let analyse (w: Word) : AnalysedWord =
         let senses = w.Senses |> Option.defaultValue []

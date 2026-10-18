@@ -8,7 +8,7 @@ module Service =
         s.Equals(sub, System.StringComparison.OrdinalIgnoreCase)
 
     let private matchNumbers (numbers: NumberForms) : string list =
-        [ numbers.Singular; numbers.Plural ] |> List.choose id
+        [ numbers.Singular; numbers.Plural ] |> List.collect id
 
     let private matchCases (cases: CaseForms) : string list =
         [ cases.Nominative; cases.Accusative; cases.Genitive; cases.Vocative ]
@@ -23,11 +23,11 @@ module Service =
         |> List.collect matchGenders
 
     let private matchAdverbDegrees (degrees: AdverbDegrees) : string list =
-        [ degrees.Comparative; degrees.Superlative ] |> List.choose id
+        [ degrees.Comparative; degrees.Superlative ] |> List.collect id
 
     let private matchNumeralCases (cases: NumeralCases) : string list =
         [ cases.Nominative; cases.Accusative; cases.Genitive; cases.Vocative ]
-        |> List.choose id
+        |> List.collect id
 
     let private matchNumeralGenders (genders: NumeralGenders) : string list =
         [ genders.Masculine; genders.Feminine; genders.Neuter ]
@@ -55,13 +55,13 @@ module Service =
         [ moods.Indicative; moods.Imperative ] |> List.collect matchVoices
 
     let private matchParticipleTenses (tenses: ParticipleTenseForms) : string list =
-        [ tenses.Present; tenses.Past; tenses.Perfect ] |> List.choose id
+        [ tenses.Present; tenses.Past; tenses.Perfect ] |> List.collect id
 
     let private matchParticipleVoices (voices: ParticipleVoiceForms) : string list =
         [ voices.Active; voices.Passive ] |> List.collect matchParticipleTenses
 
     let private matchInfinitives (infinitives: InfinitiveForms) : string list =
-        [ infinitives.Active; infinitives.Passive ] |> List.choose id
+        [ infinitives.Active; infinitives.Passive ] |> List.collect id
 
     let private matchConjugations (conjugations: VerbForms) : string list =
         matchMoods conjugations.Moods

@@ -5,26 +5,15 @@ open GreekReader.Wiktionary
 
 module NounParser =
 
-  /// Build a lookup map from (case, number) to the form string.
-  /// Uses first occurrence if duplicates exist.
-  let private buildFormMap (forms: Form list) : Map<string * string, string> =
-    forms
-    |> List.choose (fun f ->
-      match f.Tags with
-      | None -> None
-      | Some tags ->
-        match Utils.pickCase None tags, Utils.pickNumber None tags with
-        | Some c, Some n -> Some((c, n), f.Form)
-        | _ -> None)
-    |> Map.ofList
+  let getNumbers (forms: Form list) : NumberForms =
+    { Singular = forms |> Utils.withTag "singular" |> Utils.getVariants
+      Plural = forms |> Utils.withTag "plural" |> Utils.getVariants }
 
-  let getNounForms (forms: Form list) : CaseForms =
-    let formMap = buildFormMap forms
-    let get case num = formMap |> Map.tryFind (case, num)
-    { Nominative = { Singular = get "nominative" "singular"; Plural = get "nominative" "plural" }
-      Accusative = { Singular = get "accusative" "singular"; Plural = get "accusative" "plural" }
-      Genitive = { Singular = get "genitive" "singular"; Plural = get "genitive" "plural" }
-      Vocative = { Singular = get "vocative" "singular"; Plural = get "vocative" "plural" } }
+  let getCaseForms (forms: Form list) : CaseForms =
+    { Nominative = forms |> Utils.withTag "nominative" |> getNumbers
+      Accusative = forms |> Utils.withTag "accusative" |> getNumbers
+      Genitive = forms |> Utils.withTag "genitive" |> getNumbers
+      Vocative = forms |> Utils.withTag "vocative" |> getNumbers }
 
   let private tryGender = function
     | "masculine" -> Some Masculine
@@ -43,7 +32,7 @@ module NounParser =
       { Lemma = w.Word
         Glosses = senses |> Utils.getGlosses
         Gender = w.Senses |> Option.bind getGender
-        Declensions = w.Forms |> Option.defaultValue [] |> getNounForms
+        Declensions = w.Forms |> Option.defaultValue [] |> getCaseForms
         Examples = senses |> Utils.getExamples }
 
   let analyseWords (words: Word seq) : AnalysedWord seq =

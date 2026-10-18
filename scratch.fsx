@@ -22,7 +22,11 @@
 #load "Api.fs"
 
 #time "on"
+open System.Text
 open GreekReader.API
 open GreekReader.Parsing
 
-let tokens = Text.tokenise "Καλημέρα, σ'άγαπώ η φίλη μου. Είσαι 'πολύ' γλυκή."
+let s = "εγκαταλείπω"
+let normalised = (Text.normalise s)
+let l1 =  s.Length
+let l2 = s.Normalize(NormalizationForm.FormD).Length

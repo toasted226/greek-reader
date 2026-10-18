@@ -19,11 +19,13 @@ type ArticleType =
     | Definite
     | Indefinite
 
+type Variants = string list
+
 type Example = { Greek: string; English: string }
 
 type NumberForms =
-    { Singular: string option
-      Plural: string option }
+    { Singular: Variants
+      Plural: Variants }
 
 type CaseForms =
     { Nominative: NumberForms
@@ -61,9 +63,9 @@ type MoodForms =
       Imperative: VoiceForms }
 
 type ParticipleTenseForms =
-    { Present: string option
-      Past: string option
-      Perfect: string option }
+    { Present: Variants
+      Past: Variants
+      Perfect: Variants }
 
 type ParticipleVoiceForms =
     { Active: ParticipleTenseForms
@@ -72,8 +74,8 @@ type ParticipleVoiceForms =
 type ParticipleForms = { Voice: ParticipleVoiceForms }
 
 type InfinitiveForms =
-    { Active: string option
-      Passive: string option }
+    { Active: Variants
+      Passive: Variants }
 
 type DegreeForms =
     { Positive: GenderForms
@@ -86,8 +88,8 @@ type VerbForms =
       AoristInfinitives: InfinitiveForms }
 
 type AdverbDegrees =
-    { Comparative: string option
-      Superlative: string option }
+    { Comparative: Variants
+      Superlative: Variants }
 
 type NounInfo =
     { Lemma: string
@@ -153,10 +155,10 @@ type InterjectionInfo =
       Examples: Example list }
 
 type NumeralCases =
-    { Nominative: string option
-      Accusative: string option
-      Genitive: string option
-      Vocative: string option }
+    { Nominative: Variants
+      Accusative: Variants
+      Genitive: Variants
+      Vocative: Variants }
 
 type NumeralGenders =
     { Masculine: NumeralCases

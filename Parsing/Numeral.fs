@@ -6,10 +6,10 @@ open GreekReader.Wiktionary
 module NumeralParser =
 
     let getNumeralCases (forms: Form list) : NumeralCases =
-        { Nominative = forms |> Utils.withTag "nominative" |> Utils.getForm
-          Accusative = forms |> Utils.withTag "accusative" |> Utils.getForm
-          Genitive = forms |> Utils.withTag "genitive" |> Utils.getForm
-          Vocative = forms |> Utils.withTag "vocative" |> Utils.getForm }
+        { Nominative = forms |> Utils.withTag "nominative" |> Utils.getVariants
+          Accusative = forms |> Utils.withTag "accusative" |> Utils.getVariants
+          Genitive = forms |> Utils.withTag "genitive" |> Utils.getVariants
+          Vocative = forms |> Utils.withTag "vocative" |> Utils.getVariants }
 
     let getNumeralGenders (forms: Form list) : NumeralGenders =
         { Masculine = forms |> Utils.withTag "masculine" |> getNumeralCases

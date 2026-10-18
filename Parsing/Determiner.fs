@@ -5,37 +5,20 @@ open GreekReader.Wiktionary
 
 module DeterminerParser =
 
-  let tagsHaveGender (tags: string list option) (gender: string): bool =
-    tags
-    |> Option.defaultValue []
-    |> List.contains gender
+  let getNumbers (forms: Form list) : NumberForms =
+    { Singular = forms |> Utils.withTag "singular" |> Utils.getVariants
+      Plural = forms |> Utils.withTag "plural" |> Utils.getVariants }
 
-  /// Build a lookup map from (case, number) to the form string for the given gender.
-  /// Uses first occurrence if duplicates exist.
-  let buildFormMap (forms: Form list) (gender: string) : Map<string * string, string> =
-    forms
-    |> List.filter (fun f -> tagsHaveGender f.Tags gender)
-    |> List.choose (fun f ->
-      match f.Tags with
-      | None -> None
-      | Some tags ->
-        match Utils.pickCase None tags, Utils.pickNumber None tags with
-        | Some c, Some n -> Some((c, n), f.Form)
-        | _ -> None)
-    |> Map.ofList
+  let getCaseForms (forms: Form list) : CaseForms =
+    { Nominative = forms |> Utils.withTag "nominative" |> getNumbers
+      Accusative = forms |> Utils.withTag "accusative" |> getNumbers
+      Genitive = forms |> Utils.withTag "genitive" |> getNumbers
+      Vocative = forms |> Utils.withTag "vocative" |> getNumbers }
 
-  let getCaseForms (forms: Form list) (gender: string) : CaseForms =
-    let formMap = buildFormMap forms gender
-    let get case num = formMap |> Map.tryFind (case, num)
-    { Nominative = { Singular = get "nominative" "singular"; Plural = get "nominative" "plural" }
-      Accusative = { Singular = get "accusative" "singular"; Plural = get "accusative" "plural" }
-      Genitive = { Singular = get "genitive" "singular"; Plural = get "genitive" "plural" }
-      Vocative = { Singular = get "vocative" "singular"; Plural = get "vocative" "plural" } }
-    
   let getGenderForms (forms: Form list) : GenderForms =
-    { Masculine = getCaseForms forms "masculine"
-      Feminine = getCaseForms forms "feminine"
-      Neuter = getCaseForms forms "neuter" }
+    { Masculine = forms |> Utils.withTag "masculine" |> getCaseForms
+      Feminine = forms |> Utils.withTag "feminine" |> getCaseForms
+      Neuter = forms |> Utils.withTag "neuter" |> getCaseForms }
 
   let analyse (w: Word) : AnalysedWord =
     let senses = w.Senses |> Option.defaultValue []

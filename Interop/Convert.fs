@@ -1,21 +1,18 @@
 namespace GreekReader.Interop
 
-open GreekReader.Parsing
-
 module Convert =
 
     open GreekReader.Model
 
-    let formsFor (cell: string) (features: string[]) =
-        Text.parseCell cell |> Array.map (fun f -> { Form = f; Features = features }) |> Array.toList
-        
-    let private form (features: string list) (value: string option) : FormEntry list =
-        match value with
-        | Some v when not (System.String.IsNullOrWhiteSpace v) ->
-            [ { Form = v; Features = List.toArray features } ]
-            |> List.collect (fun f -> formsFor f.Form f.Features)
-            |> List.distinctBy (fun f -> f.Form, f.Features)
-        | _ -> []
+    let private form (features: string list) (value: Variants) : FormEntry list =
+        value
+        |> List.collect (fun v ->
+            if System.String.IsNullOrWhiteSpace v then
+                []
+            else
+                [ { Form = v
+                    Features = List.toArray features } ])
+        |> List.distinctBy (fun f -> f.Form, f.Features)
 
     let private numberForms (features: string list) (nf: NumberForms) : FormEntry list =
         [ yield! form (features @ [ "singular" ]) nf.Singular
@@ -46,7 +43,7 @@ module Convert =
 
     let private examples (xs: Example list) : GreekReader.Interop.Example[] =
         xs
-        |> List.map (fun e -> ({ Greek = e.Greek; English = e.English } : GreekReader.Interop.Example))
+        |> List.map (fun e -> ({ Greek = e.Greek; English = e.English }: GreekReader.Interop.Example))
         |> List.toArray
 
     let private noun (n: NounInfo) : LemmaEntry =
@@ -138,8 +135,7 @@ module Convert =
           yield! numeralCases [ "neuter" ] ng.Neuter ]
 
     let private numeral (n: NumeralInfo) : LemmaEntry =
-        let forms =
-            n.Declensions |> Option.map numeralGenders |> Option.defaultValue []
+        let forms = n.Declensions |> Option.map numeralGenders |> Option.defaultValue []
 
         { Lemma = n.Lemma
           Pos = PartOfSpeech.Numeral
@@ -148,8 +144,7 @@ module Convert =
           Forms = forms |> List.toArray }
 
     let private properNoun (p: ProperNounInfo) : LemmaEntry =
-        let forms =
-            p.Declensions |> Option.map (caseForms []) |> Option.defaultValue []
+        let forms = p.Declensions |> Option.map (caseForms []) |> Option.defaultValue []
 
         { Lemma = p.Lemma
           Pos = PartOfSpeech.ProperNoun
@@ -212,7 +207,7 @@ module Convert =
           Glosses = List.toArray v.Glosses
           Examples = examples v.Examples
           Forms = forms |> List.toArray }
-    
+
     let toInterop (word: AnalysedWord) : LemmaEntry =
         match word with
         | Noun n -> noun n

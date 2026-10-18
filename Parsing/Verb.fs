@@ -36,9 +36,9 @@ module VerbParser =
           Imperative = forms |> Utils.withTag "imperative" |> getVoices }
 
     let getParticipleTenses (forms: Form list) : ParticipleTenseForms =
-        { Present = forms |> Utils.withTag "present" |> List.tryHead |> Option.map _.Form
-          Past = forms |> Utils.withTag "past" |> List.tryHead |> Option.map _.Form
-          Perfect = forms |> Utils.withTag "perfect" |> List.tryHead |> Option.map _.Form }
+        { Present = forms |> Utils.withTag "present" |> Utils.getVariants
+          Past = forms |> Utils.withTag "past" |> Utils.getVariants
+          Perfect = forms |> Utils.withTag "perfect" |> Utils.getVariants }
 
     let getParticipleVoices (forms: Form list) : ParticipleVoiceForms =
         { Active = forms |> Utils.withTag "active" |> getParticipleTenses
@@ -48,8 +48,8 @@ module VerbParser =
         { Voice = forms |> Utils.withTag "participle" |> getParticipleVoices }
 
     let getAoristInfinitives (forms: Form list) : InfinitiveForms =
-        { Active = forms |> Utils.withTag "active" |> List.tryHead |> Option.map _.Form
-          Passive = forms |> Utils.withTag "passive" |> List.tryHead |> Option.map _.Form }
+        { Active = forms |> Utils.withTag "active" |> Utils.getVariants
+          Passive = forms |> Utils.withTag "passive" |> Utils.getVariants }
 
     let getVerbForms (forms: Form list) : VerbForms =
         { Moods = getMoods forms

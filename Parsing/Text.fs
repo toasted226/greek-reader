@@ -22,7 +22,7 @@ module Text =
                 
         sb.ToString().Normalize(NormalizationForm.FormC)
  
-    let private isApostrophe (c: char) =
+    let isApostrophe (c: char) =
         c = '\'' || c = '’' || c = 'ʼ' || c = '᾽'
 
     let private isWordChar (c: char) =
@@ -71,9 +71,4 @@ module Text =
 
     let private isWord (s: string) =
         s <> "" && s |> Seq.forall (fun c -> Char.IsLetter c || c = '\'' || c = '’')
-
-    let parseCell (cell: string) : string[] =
-        cell.Split([| " - "; ","; ";"; " / " |], StringSplitOptions.RemoveEmptyEntries)
-        |> Array.map clean
-        |> Array.filter isWord
-        |> Array.distinct
+        
