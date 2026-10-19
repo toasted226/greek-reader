@@ -35,6 +35,7 @@
     <Compile Include="Interop\Dto.fs" />
     <Compile Include="Interop\Convert.fs" />
     <Compile Include="Interop\Json.fs" />
+    <Compile Include="Interop\Handwritten.fs" />
     <Compile Include="Interop\Api.fs" />
     <None Include="scratch.fsx" />
   </ItemGroup>

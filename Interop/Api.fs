@@ -10,6 +10,7 @@ module Api =
         |> API.parseWiktionaryData
         |> API.analyseWiktionaryData
         |> Seq.map Convert.toInterop
+        |> Handwritten.merge Handwritten.all
         |> Seq.toArray
     
     [<CompiledName("Normalise")>]

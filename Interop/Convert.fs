@@ -209,17 +209,23 @@ module Convert =
           Forms = forms |> List.toArray }
 
     let toInterop (word: AnalysedWord) : LemmaEntry =
-        match word with
-        | Noun n -> noun n
-        | Article a -> article a
-        | Adjective a -> adjective a
-        | Determiner d -> determiner d
-        | Pronoun p -> pronoun p
-        | Preposition p -> preposition p
-        | Conjunction c -> conjunction c
-        | Adverb a -> adverb a
-        | Interjection i -> interjection i
-        | Numeral n -> numeral n
-        | ProperNoun p -> properNoun p
-        | Particle p -> particle p
-        | Verb v -> verb v
+        let entry =
+            match word with
+            | Noun n -> noun n
+            | Article a -> article a
+            | Adjective a -> adjective a
+            | Determiner d -> determiner d
+            | Pronoun p -> pronoun p
+            | Preposition p -> preposition p
+            | Conjunction c -> conjunction c
+            | Adverb a -> adverb a
+            | Interjection i -> interjection i
+            | Numeral n -> numeral n
+            | ProperNoun p -> properNoun p
+            | Particle p -> particle p
+            | Verb v -> verb v
+
+        if Array.isEmpty entry.Forms then
+            { entry with Forms = [| { Form = entry.Lemma; Features = [||] } |] }
+        else
+            entry
