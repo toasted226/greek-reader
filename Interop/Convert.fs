@@ -3,51 +3,13 @@ namespace GreekReader.Interop
 module Convert =
 
     open GreekReader.Model
-
-    let private bracketPattern = System.Text.RegularExpressions.Regex(@"[\(\[]([^)\]]*)[\)\]]")
-
-    let private hyphenChars =
-        [| '-'; '\u2010'; '\u2011'; '\u2012'; '\u2013'; '\u2014' |]
-
-    let private splitDelimited (s: string) : string list =
-        s.Split([| " - " |], System.StringSplitOptions.None)
-        |> Array.map (fun x -> x.Trim())
-        |> Array.filter (fun x -> not (System.String.IsNullOrWhiteSpace x))
-        |> Array.toList
-
-    let private extractBracketed (s: string) : string list =
-        bracketPattern.Matches(s)
-        |> Seq.cast<System.Text.RegularExpressions.Match>
-        |> Seq.collect (fun m ->
-            m.Groups.[1].Value.Split([| ',' |], System.StringSplitOptions.None)
-            |> Array.map (fun x -> x.Trim())
-            |> Array.filter (fun x -> not (System.String.IsNullOrWhiteSpace x)))
-        |> Seq.toList
-
-    let private removeBrackets (s: string) : string =
-        bracketPattern.Replace(s, "").Trim()
-
-    let private expandVariants (features: string list) (s: string) : FormEntry list =
-        let isSuffix (x: string) = hyphenChars |> Array.contains x.[0]
-
-        let main = removeBrackets s
-        let bracketed = extractBracketed s
-
-        [ if not (System.String.IsNullOrWhiteSpace main) && not (isSuffix main) then
-            { Form = main; Features = List.toArray features }
-          for b in bracketed do
-            if not (isSuffix b) then
-              { Form = b; Features = List.toArray features } ]
+    open GreekReader.Parsing
 
     let private form (features: string list) (value: Variants) : FormEntry list =
         value
         |> List.collect (fun v ->
-            if System.String.IsNullOrWhiteSpace v then
-                []
-            else
-                v
-                |> splitDelimited
-                |> List.collect (expandVariants features))
+            Text.expandVariants v
+            |> List.map (fun s -> { Form = s; Features = List.toArray features }))
         |> List.distinctBy (fun f -> f.Form, f.Features)
 
     let private numberForms (features: string list) (nf: NumberForms) : FormEntry list =

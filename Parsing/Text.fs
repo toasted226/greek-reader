@@ -73,3 +73,49 @@ module Text =
 
     let private isWord (s: string) =
         s <> "" && s |> Seq.forall (fun c -> Char.IsLetter c || c = '\'' || c = '’')
+
+    let private bracketPattern =
+        Text.RegularExpressions.Regex(@"[\(\[]([^)\]]*)[\)\]]")
+
+    let private hyphenChars =
+        [| '-'; '\u2010'; '\u2011'; '\u2012'; '\u2013'; '\u2014' |]
+
+    let private stripNoise (s: string) : string =
+        s.Trim(wrappers).TrimEnd(superscripts).Trim(wrappers).Trim()
+
+    let private splitDelimited (s: string) : string list =
+        s.Split([| " - " |], System.StringSplitOptions.None)
+        |> Array.map (fun x -> x.Trim())
+        |> Array.filter (fun x -> not (String.IsNullOrWhiteSpace x))
+        |> Array.toList
+
+    let private extractBracketed (s: string) : string list =
+        bracketPattern.Matches(s)
+        |> Seq.cast<Text.RegularExpressions.Match>
+        |> Seq.collect (fun m ->
+            m.Groups.[1].Value.Split([| ',' |], System.StringSplitOptions.None)
+            |> Array.map (fun x -> x.Trim())
+            |> Array.filter (fun x -> not (String.IsNullOrWhiteSpace x)))
+        |> Seq.toList
+
+    let private removeBrackets (s: string) : string =
+        bracketPattern.Replace(s, "").Trim()
+
+    let private isSuffix (x: string) =
+        hyphenChars |> Array.contains x.[0]
+
+    let expandVariants (s: string) : string list =
+        if String.IsNullOrWhiteSpace s then
+            []
+        else
+            s
+            |> splitDelimited
+            |> List.collect (fun part ->
+                let main = removeBrackets part |> stripNoise
+                let bracketed = extractBracketed part |> List.map stripNoise
+
+                [ if isWord main && not (isSuffix main) then
+                    main
+                  for b in bracketed do
+                    if isWord b && not (isSuffix b) then
+                      b ])
