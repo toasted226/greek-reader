@@ -4,14 +4,42 @@ module Convert =
 
     open GreekReader.Model
 
+    let private bracketPattern = System.Text.RegularExpressions.Regex(@"\(([^)]*)\)")
+
+    let private splitDelimited (s: string) : string list =
+        s.Split([| " - " |], System.StringSplitOptions.None)
+        |> Array.map (fun x -> x.Trim())
+        |> Array.filter (fun x -> not (System.String.IsNullOrWhiteSpace x))
+        |> Array.toList
+
+    let private extractBracketed (s: string) : string list =
+        bracketPattern.Matches(s)
+        |> Seq.cast<System.Text.RegularExpressions.Match>
+        |> Seq.map (fun m -> m.Groups.[1].Value.Trim())
+        |> Seq.filter (fun x -> not (System.String.IsNullOrWhiteSpace x))
+        |> Seq.toList
+
+    let private removeBrackets (s: string) : string =
+        bracketPattern.Replace(s, "").Trim()
+
+    let private expandVariants (features: string list) (s: string) : FormEntry list =
+        let main = removeBrackets s
+        let bracketed = extractBracketed s
+
+        [ if not (System.String.IsNullOrWhiteSpace main) then
+            { Form = main; Features = List.toArray features }
+          for b in bracketed do
+            { Form = b; Features = List.toArray features } ]
+
     let private form (features: string list) (value: Variants) : FormEntry list =
         value
         |> List.collect (fun v ->
             if System.String.IsNullOrWhiteSpace v then
                 []
             else
-                [ { Form = v
-                    Features = List.toArray features } ])
+                v
+                |> splitDelimited
+                |> List.collect (expandVariants features))
         |> List.distinctBy (fun f -> f.Form, f.Features)
 
     let private numberForms (features: string list) (nf: NumberForms) : FormEntry list =
