@@ -10,6 +10,22 @@ module Text =
         { Text: string
           Start: int
           IsWord: bool }
+        
+    let canonicalise (s: string) : string =
+        s
+        |> String.map (fun c -> if Char.IsWhiteSpace(c) && c <> ' ' then ' ' else c)
+        |> _.Replace("\u0000", "") // Null Byte
+        |> _.Replace("\uFEFF", "") // Byte Order Mark
+        |> _.Replace("\u200B", "") // Zero-Width Space
+        |> _.Replace("\a", "")
+        |> _.Replace("\b", "")
+        |> _.Replace("\r\n", "\n")
+        |> _.Replace("\r", "\n")
+        |> _.Replace("\f", "\n")
+        |> _.Replace("\v", "\n")
+        |> _.Replace("\n", Environment.NewLine)
+        |> _.Replace("\t", "    ")
+        |> _.Normalize(NormalizationForm.FormC)
 
     let normalise (s: string) : string =
         let sb = StringBuilder(s.Length)

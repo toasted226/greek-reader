@@ -16,6 +16,10 @@ module Api =
     [<CompiledName("Normalise")>]
     let normalise (s: string) : string =
         GreekReader.Parsing.Text.normalise s
+    
+    [<CompiledName("Canonicalise")>]
+    let canonicalise (s: string) : string =
+        GreekReader.Parsing.Text.canonicalise s
 
     [<CompiledName("Tokenise")>]
     let tokenise (s: string) =
