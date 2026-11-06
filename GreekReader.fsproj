@@ -27,6 +27,7 @@
     <Compile Include="Parsing\Conjunction.fs" />
     <Compile Include="Parsing\Interjection.fs" />
     <Compile Include="Parsing\Particle.fs" />
+    <Compile Include="Parsing\Contraction.fs" />
     <Compile Include="Parsing\Numeral.fs" />
     <Compile Include="Parsing\ProperNoun.fs" />
     <Compile Include="Parsing\Text.fs" />

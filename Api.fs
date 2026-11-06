@@ -10,9 +10,11 @@ module API =
 
     let private dataPath (partOfSpeech: string) : string =
         let filename = $"greek-{partOfSpeech}.jsonl"
+
         let candidates =
             [ Path.Combine(AppContext.BaseDirectory, "Resources", filename)
               Path.Combine("Resources", filename) ]
+
         candidates |> List.tryFind File.Exists |> Option.defaultValue candidates.Head
 
     let internal partsOfSpeech =
@@ -28,7 +30,8 @@ module API =
           "interjections"
           "numerals"
           "proper-nouns"
-          "particles" ]
+          "particles"
+          "contractions" ]
 
     let internal analyseWiktionaryData (words: Word seq) : AnalysedWord seq =
         words
@@ -47,13 +50,11 @@ module API =
             | "num" -> NumeralParser.analyse w
             | "name" -> ProperNounParser.analyse w
             | "particle" -> ParticleParser.analyse w
-            | _ -> ParticleParser.analyse w)
+            | "contraction" -> ContractionParser.analyse w
+            | _ -> ContractionParser.analyse w)
 
     let internal parseWiktionaryData (partsOfSpeech: string seq) : Word seq =
-        partsOfSpeech
-        |> Seq.map dataPath
-        |> Seq.map Jsonl.parseWords
-        |> Seq.concat
+        partsOfSpeech |> Seq.map dataPath |> Seq.map Jsonl.parseWords |> Seq.concat
 
     let query (query: string) : AnalysedWord list =
         partsOfSpeech
@@ -73,7 +74,8 @@ module API =
             | Interjection intj -> Service.searchInterjection query intj
             | Numeral num -> Service.searchNumeral query num
             | ProperNoun prop -> Service.searchProperNoun query prop
-            | Particle part -> Service.searchParticle query part)
+            | Particle part -> Service.searchParticle query part
+            | Contraction cont -> Service.searchContraction query cont)
         |> Seq.toList
 
     let queryText (text: string) : Map<string, AnalysedWord list> =
@@ -86,4 +88,5 @@ module API =
             | [] -> None
             | ws -> Some(q, ws))
         |> Map.ofSeq
-        
+
+    

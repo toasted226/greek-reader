@@ -17,16 +17,13 @@
 #load "Parsing/Numeral.fs"
 #load "Parsing/ProperNoun.fs"
 #load "Parsing/Particle.fs"
+#load "Parsing/Contraction.fs"
 #load "Parsing/Text.fs"
 #load "Service.fs"
-#load "Api.fs"
 
 #time "on"
 open System.Text
-open GreekReader.API
 open GreekReader.Parsing
+open GreekReader.Wiktionary
 
-let s = "εγκαταλείπω"
-let normalised = (Text.normalise s)
-let l1 =  s.Length
-let l2 = s.Normalize(NormalizationForm.FormD).Length
+let analysed = Jsonl.parseWords "Resources/greek-contractions.jsonl" |> ContractionParser.analyseWords |> Seq.toList

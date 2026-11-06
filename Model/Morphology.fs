@@ -182,6 +182,11 @@ type ParticleInfo =
       Glosses: string list
       Examples: Example list }
 
+type ContractionInfo =
+    { Lemma: string
+      Glosses: string list
+      Examples: Example list }
+
 type AnalysedWord =
     | Noun of NounInfo
     | Determiner of DeterminerInfo
@@ -196,3 +201,4 @@ type AnalysedWord =
     | Numeral of NumeralInfo
     | ProperNoun of ProperNounInfo
     | Particle of ParticleInfo
+    | Contraction of ContractionInfo

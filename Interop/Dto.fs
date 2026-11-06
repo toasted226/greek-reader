@@ -14,6 +14,7 @@ type PartOfSpeech =
     | Numeral = 10
     | ProperNoun = 11
     | Article = 12
+    | Contraction = 13
 
 [<CLIMutable>]
 type Example = { Greek: string; English: string }

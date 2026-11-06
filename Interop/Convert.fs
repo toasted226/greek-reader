@@ -156,6 +156,13 @@ module Convert =
           Glosses = List.toArray p.Glosses
           Examples = examples p.Examples
           Forms = [||] }
+        
+    let private contraction (c: ContractionInfo) : LemmaEntry =
+        { Lemma = c.Lemma
+          Pos = PartOfSpeech.Contraction
+          Glosses = List.toArray c.Glosses
+          Examples = examples c.Examples
+          Forms = [||] }
 
     let private personForms (features: string list) (pf: PersonForms) : FormEntry list =
         [ yield! numberForms (features @ [ "first-person" ]) pf.FirstPerson
@@ -221,6 +228,7 @@ module Convert =
             | Numeral n -> numeral n
             | ProperNoun p -> properNoun p
             | Particle p -> particle p
+            | Contraction c -> contraction c
             | Verb v -> verb v
 
         if Array.isEmpty entry.Forms then

@@ -184,3 +184,8 @@ module Service =
         match [ word.Lemma ] |> List.exists (contains query) with
         | true -> Some(Particle word)
         | _ -> None
+        
+    let searchContraction (query: string) (word: ContractionInfo) : AnalysedWord option =
+        match [ word.Lemma ] |> List.exists (contains query) with
+        | true -> Some(Contraction word)
+        | _ -> None
