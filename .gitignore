@@ -4,7 +4,3 @@ obj/
 
 # Rider local state
 .idea/
-
-# scraped input dataset (93MB, regenerable)
-greek-nouns.jsonl
-noun.json
