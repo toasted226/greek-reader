@@ -13,7 +13,6 @@ module Text =
         
     let canonicalise (s: string) : string =
         s
-        |> String.map (fun c -> if Char.IsWhiteSpace(c) && c <> ' ' then ' ' else c)
         |> _.Replace("\u0000", "") // Null Byte
         |> _.Replace("\uFEFF", "") // Byte Order Mark
         |> _.Replace("\u200B", "") // Zero-Width Space
@@ -25,6 +24,7 @@ module Text =
         |> _.Replace("\v", "\n")
         |> _.Replace("\n", Environment.NewLine)
         |> _.Replace("\t", "    ")
+        |> String.map (fun c -> if Char.IsWhiteSpace c && c <> ' ' && c <> '\n' then ' ' else c)
         |> _.Normalize(NormalizationForm.FormC)
 
     let normalise (s: string) : string =
